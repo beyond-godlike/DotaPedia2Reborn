@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DotaPedia2Reborn</string>
+    <string name="btn_pedia">Pedia</string>
+    <string name="btn_updates">Updates</string>
+    <string name="btn_check_mmr">Dotabuff</string>
+    <string name="btn_hero_constructor">Hero constructor</string>
+
+    <string name="find_match_lbl">Find match</string>
+    <string name="find_history_lbl">Find history</string>
+    <string name="go_bt">Go</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>

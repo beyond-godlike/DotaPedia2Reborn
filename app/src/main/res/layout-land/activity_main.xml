@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
+
+    <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/fab"
+            style="@style/AppTheme.Fab"
+            app:fab_colorNormal="@color/secondaryColor"
+            app:fab_colorPressed="@color/secondaryDarkColor"
+            app:fab_colorRipple="@color/secondaryLightColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.LinearLayoutMainActivity"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+                android:id="@+id/btPedia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ActivityHomeButton"
+                android:layout_weight="1"
+                android:text="@string/btn_pedia" />
+
+        <Button
+                android:id="@+id/btUpdates"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ActivityHomeButton"
+                android:layout_weight="1"
+                android:text="@string/btn_updates" />
+
+        <Button
+                android:id="@+id/btDotabuff"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ActivityHomeButton"
+                android:layout_weight="1"
+                android:text="@string/btn_check_mmr" />
+
+        <Button
+                android:id="@+id/btHeroConstructor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.ActivityHomeButton"
+                android:layout_weight="1"
+                android:text="@string/btn_hero_constructor" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
