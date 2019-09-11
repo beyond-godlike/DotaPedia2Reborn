@@ -13,7 +13,10 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        useLibrary 'android.test.runner'
+        useLibrary 'android.test.base'
+        useLibrary 'android.test.mock'
     }
 
     buildTypes {
