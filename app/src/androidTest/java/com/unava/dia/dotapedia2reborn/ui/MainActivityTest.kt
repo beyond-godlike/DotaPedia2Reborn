@@ -25,7 +25,7 @@ class MainActivityTest {
     }
 
     @Test
-    fun buttonsAvailebility() {
+    fun buttonsAvailability() {
         onView(withId(R.id.btPedia)).check(matches(allOf(isDisplayed(), isEnabled(), withText(R.string.btn_pedia))))
         onView(withId(R.id.btUpdates)).check(matches(allOf(isDisplayed(), isEnabled(), withText(R.string.btn_updates))))
         onView(withId(R.id.btHeroConstructor)).check(
