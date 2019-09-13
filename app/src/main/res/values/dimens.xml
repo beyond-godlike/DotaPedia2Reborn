@@ -1,3 +1,8 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="spacing_fab">25dp</dimen>
+    <dimen name="spacing_default">25dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+
+    <dimen name="spacing_elevation"></dimen>
 </resources>
