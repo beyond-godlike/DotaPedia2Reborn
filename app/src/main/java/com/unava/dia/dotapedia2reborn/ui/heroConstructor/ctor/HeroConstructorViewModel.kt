@@ -67,13 +67,51 @@ class HeroConstructorViewModel @Inject constructor(
     }
 
     private fun changeStatsAgility() {
+        tempHero.currentStrength = tempHero.strength + tempHero.currentLvl * tempHero.addSt
+        tempHero.currentAgility = tempHero.agility + tempHero.currentLvl * tempHero.addAg
+        tempHero.currentIntelligence = tempHero.intelligence + tempHero.currentLvl * tempHero.addInt
 
+        tempHero.currentDmg1 = (tempHero.currentLvl * tempHero.addAg) + tempHero.baseDamage1 + tempHero.agility
+        tempHero.currentDmg2 = (tempHero.currentLvl * tempHero.addAg) + tempHero.baseDamage2 + tempHero.agility
+
+        tempHero.currentArmor = tempHero.physarmor + (tempHero.currentAgility * 0.2)
+        tempHero.currentMagResist = 0.25
+
+        tempHero.currentSpeed = (tempHero.speed + (tempHero.currentAgility * 0.063)).toInt()
+
+        tempHero.currentStrength = tempHero.strength + tempHero.currentLvl * tempHero.addAg
+        tempHero.currentHp = tempHero.baseHp + (tempHero.currentStrength * 18)
+
+        tempHero.currentIntelligence = tempHero.intelligence + tempHero.currentLvl * tempHero.addInt
+        tempHero.currentMp = tempHero.baseMp + (tempHero.currentIntelligence * 12.0)
+
+        tempHero.currentEHP = tempHero.currentHp * (tempHero.currentArmor * 0.06 + 1)
+        tempHero.currentEHPm = tempHero.currentHp / (1 - tempHero.currentMagResist)
     }
 
     private fun changeStatsIntelligence() {
+        tempHero.currentStrength = tempHero.strength + tempHero.currentLvl * tempHero.addSt
+        tempHero.currentAgility = tempHero.agility + tempHero.currentLvl * tempHero.addAg
+        tempHero.currentIntelligence = tempHero.intelligence + tempHero.currentLvl * tempHero.addInt
+
+        tempHero.currentDmg1 = (tempHero.currentLvl * tempHero.addInt) + tempHero.baseDamage1 + tempHero.intelligence
+        tempHero.currentDmg2 = (tempHero.currentLvl * tempHero.addInt) + tempHero.baseDamage2 + tempHero.intelligence
+
+        tempHero.currentArmor = tempHero.physarmor + (tempHero.currentAgility * 0.16)
+        tempHero.currentMagResist = 0.25
+
+        tempHero.currentSpeed = (tempHero.speed + (tempHero.currentAgility * 0.05)).toInt()
+
+        tempHero.currentStrength = tempHero.strength + tempHero.currentLvl * tempHero.addSt
+        tempHero.currentHp = tempHero.baseHp + (tempHero.currentStrength * 18)
+
+        tempHero.currentIntelligence = tempHero.intelligence + tempHero.currentLvl * tempHero.addInt
+        tempHero.currentMp = tempHero.baseMp + (tempHero.currentIntelligence * 15.0)
+
+        tempHero.currentEHP = tempHero.currentHp * (tempHero.currentArmor * 0.06 + 1)
+        tempHero.currentEHPm = tempHero.currentHp / (1 - tempHero.currentMagResist)
 
     }
-
 
     fun addLvl() {
         if (lvl >= 25) {lvl = 25}

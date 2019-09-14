@@ -68,17 +68,17 @@ class HeroConstructorActivity : AppCompatActivity() {
                 ProjectConstants.IMAGE_HERO_CONSTRUCTOR_WIDTH,
                 ProjectConstants.IMAGE_HERO_CONSTRUCTOR_HEIGHT
             )
-            tvLvl.text = it.currentLvl.toString()
-            tvHp.text = it.currentHp.toString()
-            tvMp.text = it.currentMp.toString()
+            tvLvl.text = (it.currentLvl+1).toString()
+            tvHp.text = (formatter(it.currentHp) + " (" + formatter(it.currentEHP) + "), (" + formatter(it.currentEHPm) + ") ")
+            tvMp.text = formatter(it.currentMp)
 
-            tvAttack.text = it.currentDmg1.toString()
-            tvArmor.text = it.currentArmor.toString()
+            tvAttack.text = (formatter(it.currentDmg1) + " + " + formatter(it.currentDmg2))
+            tvArmor.text = formatter(it.currentArmor)
             tvSpeed.text = it.currentSpeed.toString()
 
-            tvAgility.text = it.currentAgility.toString()
-            tvStrength.text = it.currentStrength.toString()
-            tvIntelligence.text = it.currentIntelligence.toString()
+            tvAgility.text = (formatter(it.currentAgility) + " + " + formatter(it.addAg))
+            tvStrength.text = (formatter(it.currentStrength) + " + " + formatter(it.addSt))
+            tvIntelligence.text = (formatter(it.currentIntelligence) + " + " + formatter(it.addInt))
 
             skill_one.setImageDrawable(Drawable.createFromStream(Utils.openImage(it.skill1, applicationContext), null))
             skill_two.setImageDrawable(Drawable.createFromStream(Utils.openImage(it.skill2, applicationContext), null))
@@ -111,5 +111,13 @@ class HeroConstructorActivity : AppCompatActivity() {
         this.viewModel.skillDescription.observe(this, Observer {
             tvSkillDescription.text = it.toString()
         })
+    }
+
+    private fun formatter(number: Double) : String {
+        return (Integer.toString(number.toInt()))
+    }
+
+    fun formatterD(number: Double) : String {
+        return number.toString()
     }
 }
