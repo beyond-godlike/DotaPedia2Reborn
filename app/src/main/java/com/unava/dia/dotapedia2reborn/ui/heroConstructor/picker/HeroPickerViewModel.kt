@@ -14,7 +14,7 @@ class HeroPickerViewModel @Inject constructor(
 ) : ViewModel() {
     var heroes: MutableLiveData<RealmResults<DotaHero>> = MutableLiveData()
 
-    fun loadHeroes(context: Context) {
+    fun loadHeroes() {
         val dotaHeroDao = DotaHeroDao(this.context)
         dotaHeroDao.initRepos()
         heroes.value = dotaHeroDao.loadRepos()

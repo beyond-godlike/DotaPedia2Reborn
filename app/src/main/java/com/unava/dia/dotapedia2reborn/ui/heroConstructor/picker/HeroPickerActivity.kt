@@ -31,7 +31,7 @@ class HeroPickerActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        viewModel.loadHeroes(this.applicationContext)
+        viewModel.loadHeroes()
         initRecyclerView()
     }
 

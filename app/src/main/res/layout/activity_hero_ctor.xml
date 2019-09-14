@@ -39,7 +39,7 @@
         />
 
         <TextView
-                android:id="@+id/textViewHP"
+                android:id="@+id/tvHp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -50,12 +50,12 @@
         />
 
         <TextView
-                android:id="@+id/textViewMP"
+                android:id="@+id/tvMp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="@+id/textViewHP"
+                app:layout_constraintLeft_toLeftOf="@+id/tvHp"
                 app:layout_constraintRight_toRightOf="@+id/tvLvl"
-                app:layout_constraintTop_toBottomOf="@+id/textViewHP"
+                app:layout_constraintTop_toBottomOf="@+id/tvHp"
                 android:text="@string/tv_mp"
                 style="@style/AppTheme.TextViewMp"
         />
@@ -75,7 +75,7 @@
         >
 
             <ImageView
-                    android:id="@+id/imageStrength"
+                    android:id="@+id/ivStrength"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="4"
@@ -84,7 +84,7 @@
             />
 
             <ImageView
-                    android:id="@+id/imageAgility"
+                    android:id="@+id/ivAgility"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="5"
@@ -93,7 +93,7 @@
             />
 
             <ImageView
-                    android:id="@+id/imageIntelligence"
+                    android:id="@+id/ivIntelligence"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="6"
@@ -102,7 +102,7 @@
             />
 
             <TextView
-                    android:id="@+id/textViewStrength"
+                    android:id="@+id/tvStrength"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_row="4"
@@ -112,7 +112,7 @@
             />
 
             <TextView
-                    android:id="@+id/textViewAgility"
+                    android:id="@+id/tvAgility"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_row="5"
@@ -121,7 +121,7 @@
             />
 
             <TextView
-                    android:id="@+id/textViewIntelligence"
+                    android:id="@+id/tvIntelligence"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_row="6"
@@ -130,7 +130,7 @@
             />
 
             <TextView
-                    android:id="@+id/textViewAttack"
+                    android:id="@+id/tvAttack"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_row="1"
@@ -139,7 +139,7 @@
             />
 
             <TextView
-                    android:id="@+id/textViewArmor"
+                    android:id="@+id/tvArmor"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_row="2"
@@ -148,7 +148,7 @@
             />
 
             <TextView
-                    android:id="@+id/textViewSpeed"
+                    android:id="@+id/tvSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_row="3"
@@ -157,7 +157,7 @@
             />
 
             <ImageView
-                    android:id="@+id/imageAttack"
+                    android:id="@+id/ivAttack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -166,7 +166,7 @@
             />
 
             <ImageView
-                    android:id="@+id/imageArmor"
+                    android:id="@+id/ivArmor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="2"
@@ -175,7 +175,7 @@
             />
 
             <ImageView
-                    android:id="@+id/imageSpeed"
+                    android:id="@+id/ivSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="3"
@@ -191,11 +191,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_small"
-                app:layout_constraintBottom_toTopOf="@+id/buttonPlus"
+                app:layout_constraintBottom_toTopOf="@+id/btPlus"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewMP"
+                app:layout_constraintStart_toEndOf="@+id/tvMp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMP"
+                app:layout_constraintTop_toBottomOf="@+id/tvMp"
         >
 
             <LinearLayout
@@ -250,10 +250,10 @@
 
 
         <Button
-                android:id="@+id/buttonPlus"
+                android:id="@+id/btPlus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/buttonMinus"
+                app:layout_constraintEnd_toStartOf="@+id/btMinus"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/scrollLayout3"
                 android:text="@string/bt_plus_lvl"
@@ -261,33 +261,33 @@
         />
 
         <Button
-                android:id="@+id/buttonMinus"
+                android:id="@+id/btMinus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/buttonMaximum"
-                app:layout_constraintStart_toEndOf="@+id/buttonPlus"
+                app:layout_constraintEnd_toStartOf="@+id/btMaximum"
+                app:layout_constraintStart_toEndOf="@+id/btPlus"
                 app:layout_constraintTop_toBottomOf="@+id/scrollLayout3"
                 android:text="@string/bt_minus_lvl"
                 style="@style/AppTheme.ButtonHeroConstructor"
         />
 
         <Button
-                android:id="@+id/buttonMaximum"
+                android:id="@+id/btMaximum"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/buttonMinimum"
-                app:layout_constraintStart_toEndOf="@+id/buttonMinus"
+                app:layout_constraintEnd_toStartOf="@+id/btMinimum"
+                app:layout_constraintStart_toEndOf="@+id/btMinus"
                 app:layout_constraintTop_toBottomOf="@+id/scrollLayout3"
                 android:text="@string/bt_max_lvl"
                 style="@style/AppTheme.ButtonHeroConstructor"
         />
 
         <Button
-                android:id="@+id/buttonMinimum"
+                android:id="@+id/btMinimum"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buttonMaximum"
+                app:layout_constraintStart_toEndOf="@+id/btMaximum"
                 app:layout_constraintTop_toBottomOf="@+id/scrollLayout3"
                 android:text="@string/bt_reset_lvl"
                 style="@style/AppTheme.ButtonHeroConstructor"
@@ -298,11 +298,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_default"
                 app:layout_constraintLeft_toLeftOf="@+id/scrollLayout3"
-                app:layout_constraintTop_toBottomOf="@+id/buttonPlus"
+                app:layout_constraintTop_toBottomOf="@+id/btPlus"
         >
 
             <TextView
-                    android:id="@+id/skillDescription"
+                    android:id="@+id/tvSkillDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/spacing_medium"
