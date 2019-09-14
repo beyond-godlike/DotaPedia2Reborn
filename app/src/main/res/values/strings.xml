@@ -9,7 +9,7 @@
     <string name="find_history_lbl">Find history</string>
     <string name="go_bt">Go</string>
 
-    <string name="tv_hero_name">Hero name</string>
+    <string name="tv_hero_lvl">1</string>
     <string name="tv_hp">hp</string>
     <string name="tv_mp">mp</string>
     <string name="bt_plus_lvl">+1 lvl</string>
