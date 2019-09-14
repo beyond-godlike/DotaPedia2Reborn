@@ -1,17 +1,17 @@
 package com.unava.dia.dotapedia2reborn.utils
 
 import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+import com.squareup.picasso.Picasso
 
-
-class GlideUtils {
+class PicassoUtils {
     companion object {
-        fun setImageUrl(imageView: ImageView, imageUrl: String, imageWidth: Int, imageHeight: Int) {
+        private fun setImageUrl(imageView: ImageView, imageUrl: String, imageWidth: Int, imageHeight: Int) {
             val context = imageView.context
 
-            Glide.with(context).load(imageUrl)
-                .apply(RequestOptions().override(imageWidth, imageHeight))
+            Picasso.with(context)
+                .load(imageUrl)
+                .resize(imageWidth, imageHeight)
+                .centerCrop()
                 .into(imageView)
         }
 
@@ -32,7 +32,7 @@ class GlideUtils {
 
             val context = imageView.context
 
-            Glide.with(context).load(imageUrl)
+            Picasso.with(context).load(imageUrl)
                 .into(imageView)
         }
     }

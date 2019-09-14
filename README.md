@@ -1,6 +1,6 @@
 ## Inspired by Dota 2 
 
-###### DotaPedia uses OpenDota API & SteamApi and build on MVVM pattern architecture using Glide (has got a bigger method count than Picasso I know), Retrofit, OkHttp (Picasso should be here as it is created by the same company but no xd), Coroutines and Dagger2.
+###### DotaPedia uses OpenDota API & SteamApi and build on MVVM pattern architecture using Picasso, Retrofit, OkHttp, Coroutines and Dagger2.
 
 ![main](https://pp.userapi.com/c850736/v850736379/643e0/Yv-sHuwsFjg.jpg)
 

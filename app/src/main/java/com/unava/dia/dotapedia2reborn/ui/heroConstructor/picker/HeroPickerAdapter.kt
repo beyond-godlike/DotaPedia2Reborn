@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.data.DotaHero
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.ctor.HeroConstructorActivity
-import com.unava.dia.dotapedia2reborn.utils.GlideUtils
+import com.unava.dia.dotapedia2reborn.utils.PicassoUtils
 import com.unava.dia.dotapedia2reborn.utils.ProjectConstants
-import com.unava.dia.dotapedia2reborn.utils.RecyclerViewClickListener
+import com.unava.dia.dotapedia2reborn.ui.common.RecyclerViewClickListener
 import io.realm.RealmResults
 
 
@@ -28,7 +28,7 @@ class HeroPickerAdapter(
     }
 
     override fun onBindViewHolder(holder: HeroPickerViewHolder, position: Int) {
-        GlideUtils.setImageHero(
+        PicassoUtils.setImageHero(
             holder.heroImage, heroesList[position]!!.rname,
             ProjectConstants.IMAGE_HERO_SMALL_WIDTH, ProjectConstants.IMAGE_HERO_SMALL_HEIGHT
         )
