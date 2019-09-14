@@ -9,6 +9,17 @@
     <string name="find_history_lbl">Find history</string>
     <string name="go_bt">Go</string>
 
+    <string name="tv_hero_name">Hero name</string>
+    <string name="tv_hp">hp</string>
+    <string name="tv_mp">mp</string>
+    <string name="bt_plus_lvl">+1 lvl</string>
+    <string name="bt_minus_lvl">-1 lvl</string>
+    <string name="bt_max_lvl">Max lvl</string>
+    <string name="bt_reset_lvl">Reset</string>
+
+    <string name="tv_skill_name">Skill name</string>
+    <string name="tv_double">0.0</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
