@@ -1,4 +1,4 @@
-package com.unava.dia.dotapedia2reborn.ui.dotabuff.checker
+package com.unava.dia.dotapedia2reborn.ui.updates.update
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,16 +7,16 @@ import com.unava.dia.dotapedia2reborn.R
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class MmrCheckerActivity : AppCompatActivity() {
+class OneUpdateActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     @Inject
-    lateinit var viewModel: MmrCheckerViewModel
+    lateinit var viewModel: OneUpdateViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mmr_checker)
+        setContentView(R.layout.activity_one_update)
         AndroidInjection.inject(this)
         this.bindViewModel()
         init()
@@ -27,7 +27,7 @@ class MmrCheckerActivity : AppCompatActivity() {
     }
 
     private fun bindViewModel() {
-        this.viewModel = ViewModelProvider(this, viewModelFactory).get(MmrCheckerViewModel::class.java)
+        this.viewModel = ViewModelProvider(this, viewModelFactory).get(OneUpdateViewModel::class.java)
         this.observeViewModel()
     }
 

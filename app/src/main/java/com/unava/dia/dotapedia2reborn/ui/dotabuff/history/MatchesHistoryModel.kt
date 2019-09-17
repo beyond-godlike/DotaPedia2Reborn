@@ -1,4 +1,6 @@
 package com.unava.dia.dotapedia2reborn.ui.dotabuff.history
 
-class MatchesHistoryModel {
+import javax.inject.Inject
+
+class MatchesHistoryModel @Inject constructor() {
 }
