@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.unava.dia.dotapedia2reborn.R
+import com.unava.dia.dotapedia2reborn.ui.dotabuff.DotabuffActivity
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker.HeroPickerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             //start UpdatesActivity
         }
         btDotabuff.setOnClickListener {
-            // start DotabuffActivity
+            startActivity(Intent(this, DotabuffActivity::class.java))
         }
         btHeroConstructor.setOnClickListener {
             startActivity(Intent(this, HeroPickerActivity::class.java))

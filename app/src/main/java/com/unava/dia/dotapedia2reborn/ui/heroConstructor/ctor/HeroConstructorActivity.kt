@@ -30,22 +30,13 @@ class HeroConstructorActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val id = this.intent.flags
-        this.viewModel.loadHero(id)
+        this.viewModel.loadHero(this.intent.flags)
         this.viewModel.updateLvl()
 
-        btPlus.setOnClickListener {
-            this.viewModel.addLvl()
-        }
-        btMinus.setOnClickListener {
-            this.viewModel.minusLvl()
-        }
-        btMaximum.setOnClickListener {
-            this.viewModel.maxLvl()
-        }
-        btMinimum.setOnClickListener {
-            this.viewModel.resetLvl()
-        }
+        btPlus.setOnClickListener { this.viewModel.addLvl() }
+        btMinus.setOnClickListener { this.viewModel.minusLvl() }
+        btMaximum.setOnClickListener { this.viewModel.maxLvl() }
+        btMinimum.setOnClickListener { this.viewModel.resetLvl() }
 
         skill_one.setOnClickListener { this.viewModel.updateSkillDescription(1) }
         skill_two.setOnClickListener { this.viewModel.updateSkillDescription(2) }
@@ -68,8 +59,9 @@ class HeroConstructorActivity : AppCompatActivity() {
                 ProjectConstants.IMAGE_HERO_CONSTRUCTOR_WIDTH,
                 ProjectConstants.IMAGE_HERO_CONSTRUCTOR_HEIGHT
             )
-            tvLvl.text = (it.currentLvl+1).toString()
-            tvHp.text = (formatter(it.currentHp) + " (" + formatter(it.currentEHP) + "), (" + formatter(it.currentEHPm) + ") ")
+            tvLvl.text = (it.currentLvl + 1).toString()
+            tvHp.text =
+                (formatter(it.currentHp) + " (" + formatter(it.currentEHP) + "), (" + formatter(it.currentEHPm) + ") ")
             tvMp.text = formatter(it.currentMp)
 
             tvAttack.text = (formatter(it.currentDmg1) + " + " + formatter(it.currentDmg2))
@@ -113,11 +105,7 @@ class HeroConstructorActivity : AppCompatActivity() {
         })
     }
 
-    private fun formatter(number: Double) : String {
+    private fun formatter(number: Double): String {
         return (Integer.toString(number.toInt()))
-    }
-
-    fun formatterD(number: Double) : String {
-        return number.toString()
     }
 }

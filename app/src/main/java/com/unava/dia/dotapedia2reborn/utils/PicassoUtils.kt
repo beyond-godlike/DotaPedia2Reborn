@@ -2,13 +2,13 @@ package com.unava.dia.dotapedia2reborn.utils
 
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
+import com.unava.dia.dotapedia2reborn.utils.ProjectConstants.Companion.IMAGE_ONE_MATCH_HERO_HEIGHT
+import com.unava.dia.dotapedia2reborn.utils.ProjectConstants.Companion.IMAGE_ONE_MATCH_HERO_WIDTH
 
 class PicassoUtils {
     companion object {
         private fun setImageUrl(imageView: ImageView, imageUrl: String, imageWidth: Int, imageHeight: Int) {
-            val context = imageView.context
-
-            Picasso.with(context)
+            Picasso.with(imageView.context)
                 .load(imageUrl)
                 .resize(imageWidth, imageHeight)
                 .centerCrop()
@@ -30,9 +30,21 @@ class PicassoUtils {
                 .append(avatarUrl)
                 .toString()
 
-            val context = imageView.context
+            Picasso.with(imageView.context).load(imageUrl)
+                .into(imageView)
+        }
 
-            Picasso.with(context).load(imageUrl)
+        fun setHeroIconSmall(imageView: ImageView, imageName: String) {
+            var url = imageName.replace("npc_dota_hero_", "http://cdn.dota2.com/apps/dota2/images/heroes/")
+            url += "_sb.png"
+
+            val imageUrl = StringBuilder()
+                .append(url)
+                .toString()
+
+            Picasso.with(imageView.context)
+                .load(imageUrl)
+                .resize(IMAGE_ONE_MATCH_HERO_WIDTH, IMAGE_ONE_MATCH_HERO_HEIGHT)
                 .into(imageView)
         }
     }

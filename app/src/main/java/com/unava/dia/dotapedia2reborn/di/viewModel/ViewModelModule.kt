@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.ctor.HeroConstructorViewModel
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker.HeroPickerViewModel
+import com.unava.dia.dotapedia2reborn.ui.dotabuff.match.MatchViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -24,6 +25,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(HeroPickerViewModel::class)
     internal abstract fun bindHeroPickerViewModel(viewModel: HeroPickerViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MatchViewModel::class)
+    internal abstract fun bindMatchViewModel(viewModel: MatchViewModel): ViewModel
 
     //Add more ViewModels here
 }
