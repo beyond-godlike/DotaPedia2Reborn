@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+>
+
+    <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="10"
+            android:columnCount="10"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+    >
+
+        <ImageView
+                android:id="@+id/ivHeroIcon"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:layout_row="1"
+                android:layout_rowSpan="2"
+                android:layout_gravity="fill"
+                android:layout_margin="@dimen/spacing_small"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+        <TextView
+                android:id="@+id/tvNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:text="hero name"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+        <TextView
+                android:id="@+id/tvSkillbracket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_row="2"
+                android:layout_column="2"
+                android:text="skill bracket"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+
+        <TextView
+                android:id="@+id/tvWinLost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_row="1"
+                android:layout_column="3"
+                android:text="lost match"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+        <TextView
+                android:id="@+id/tvStartTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_row="2"
+                android:layout_column="3"
+                android:text="skill bracket"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+
+        <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_row="1"
+                android:layout_column="4"
+                android:text="hero name"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+        <TextView
+                android:id="@+id/tvMatchType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_row="2"
+                android:layout_column="4"
+                android:text="All pick"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+
+        <TextView
+                android:id="@+id/tvDuration"
+                android:layout_gravity="center"
+                android:layout_rowSpan="2"
+                android:layout_row="1"
+                android:layout_column="5"
+                android:text="duration"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+
+        <TextView
+                android:id="@+id/tvKDA"
+                android:layout_gravity="center"
+                android:layout_row="1"
+                android:layout_rowSpan="2"
+                android:layout_column="6"
+                android:text="KDA"
+                style="@style/AppTheme.TextViewOneMatch"
+        />
+
+    </GridLayout>
+</androidx.cardview.widget.CardView>
