@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dotabuff.checker.MmrCheckerActivity"
+>
+
+    <ImageView
+            android:id="@+id/ivPlayerIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/AppTheme.ImageViewMmrChecker"
+    />
+
+    <TextView
+            android:id="@+id/tvLabelSoloMmr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPlayerIcon"
+            android:text="@string/et_solo_mmr"
+            style="@style/AppTheme.TextViewDescriptionMmrChecker"
+    />
+
+    <TextView
+            android:id="@+id/tvSoloMmr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelSoloMmr"
+            app:layout_constraintTop_toBottomOf="@+id/ivPlayerIcon"
+            android:text="@string/et_data"
+            style="@style/AppTheme.TextViewDataMmrChecker"
+    />
+
+    <TextView
+            android:id="@+id/tvLabelPartyMmr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelSoloMmr"
+            android:text="@string/et_party_mmr"
+            style="@style/AppTheme.TextViewDescriptionMmrChecker"
+    />
+
+    <TextView
+            android:id="@+id/tvPartyMmr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelPartyMmr"
+            app:layout_constraintTop_toBottomOf="@+id/tvSoloMmr"
+            android:text="@string/et_data"
+            style="@style/AppTheme.TextViewDataMmrChecker"
+    />
+
+    <TextView
+            android:id="@+id/tvLabelEstimatedMmr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelPartyMmr"
+            android:text="@string/et_estimated_mmr"
+            style="@style/AppTheme.TextViewDescriptionMmrChecker"
+    />
+
+    <TextView
+            android:id="@+id/tvEstimatedMmr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/et_data"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelEstimatedMmr"
+            app:layout_constraintTop_toBottomOf="@+id/tvPartyMmr"
+            style="@style/AppTheme.TextViewDataMmrChecker"
+    />
+
+    <EditText
+            android:id="@+id/etPlayerId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSoloMmr"
+            style="@style/AppTheme.EditTextMmrChecker"
+    />
+
+    <Button
+            android:id="@+id/btSearchPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPlayerId"
+            app:layout_constraintStart_toEndOf="@+id/tvEstimatedMmr"
+            android:text="@string/bt_search"
+            style="@style/AppTheme.ButtonMmrChecker"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

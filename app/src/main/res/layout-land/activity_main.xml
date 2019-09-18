@@ -5,57 +5,64 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
+        tools:context=".ui.MainActivity"
+>
 
     <com.melnykov.fab.FloatingActionButton
             android:id="@+id/fab"
-            style="@style/AppTheme.Fab"
             app:fab_colorNormal="@color/secondaryColor"
             app:fab_colorPressed="@color/secondaryDarkColor"
             app:fab_colorRipple="@color/secondaryLightColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            style="@style/AppTheme.Fab"
+    />
 
     <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.LinearLayoutMainActivity"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/AppTheme.LinearLayoutMainActivity"
+    >
 
         <Button
                 android:id="@+id/btPedia"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.ActivityHomeButton"
                 android:layout_weight="1"
-                android:text="@string/btn_pedia" />
+                android:text="@string/btn_pedia"
+                style="@style/AppTheme.ActivityHomeButton"
+        />
 
         <Button
                 android:id="@+id/btUpdates"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.ActivityHomeButton"
                 android:layout_weight="1"
-                android:text="@string/btn_updates" />
+                android:text="@string/btn_updates"
+                style="@style/AppTheme.ActivityHomeButton"
+        />
 
         <Button
                 android:id="@+id/btDotabuff"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.ActivityHomeButton"
                 android:layout_weight="1"
-                android:text="@string/btn_check_mmr" />
+                android:text="@string/btn_check_mmr"
+                style="@style/AppTheme.ActivityHomeButton"
+        />
 
         <Button
                 android:id="@+id/btHeroConstructor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.ActivityHomeButton"
                 android:layout_weight="1"
-                android:text="@string/btn_hero_constructor" />
+                android:text="@string/btn_hero_constructor"
+                style="@style/AppTheme.ActivityHomeButton"
+        />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

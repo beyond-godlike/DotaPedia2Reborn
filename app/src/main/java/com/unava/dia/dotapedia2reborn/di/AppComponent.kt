@@ -3,6 +3,7 @@ package com.unava.dia.dotapedia2reborn.di
 import android.app.Application
 import com.unava.dia.dotapedia2reborn.DotaPediaApp
 import com.unava.dia.dotapedia2reborn.di.network.NetworkModule
+import com.unava.dia.dotapedia2reborn.di.useCases.UseCasesModule
 import com.unava.dia.dotapedia2reborn.di.viewModel.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
@@ -16,7 +17,8 @@ import javax.inject.Singleton
         AppModule::class,
         ActivityBuilder::class,
         ViewModelModule::class,
-        NetworkModule::class
+        NetworkModule::class,
+        UseCasesModule::class
     ]
 )
 interface AppComponent {

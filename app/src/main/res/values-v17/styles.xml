@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.TextViewHp">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:background">@drawable/hp_style</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="AppTheme.TextViewMp">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:background">@drawable/mp_style</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="AppTheme.TextViewHeroName">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Medium</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColorLink">@color/HP</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+</resources>

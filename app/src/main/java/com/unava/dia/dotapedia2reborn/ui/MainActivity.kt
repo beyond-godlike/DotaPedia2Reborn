@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.unava.dia.dotapedia2reborn.R
+import com.unava.dia.dotapedia2reborn.ui.dotabuff.DotabuffActivity
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker.HeroPickerActivity
+import com.unava.dia.dotapedia2reborn.ui.pedia.DotapediaActivity
+import com.unava.dia.dotapedia2reborn.ui.updates.UpdatesActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,13 +20,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun initUI() {
         btPedia.setOnClickListener {
-            // start PediaActivity
+            startActivity(Intent(this, DotapediaActivity::class.java))
         }
         btUpdates.setOnClickListener {
-            //start UpdatesActivity
+            startActivity(Intent(this, UpdatesActivity::class.java))
         }
         btDotabuff.setOnClickListener {
-            // start DotabuffActivity
+            startActivity(Intent(this, DotabuffActivity::class.java))
         }
         btHeroConstructor.setOnClickListener {
             startActivity(Intent(this, HeroPickerActivity::class.java))

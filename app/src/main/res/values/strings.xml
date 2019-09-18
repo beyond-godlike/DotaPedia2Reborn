@@ -5,11 +5,43 @@
     <string name="btn_check_mmr">Dotabuff</string>
     <string name="btn_hero_constructor">Hero constructor</string>
 
-    <string name="find_match_lbl">Find match</string>
-    <string name="find_history_lbl">Find history</string>
-    <string name="go_bt">Go</string>
+    <string name="tv_find_match">Find match</string>
+    <string name="tv_find_history">Find history</string>
+    <string name="tv_find_player">Check mmr</string>
+    <string name="bt_go">Go</string>
+
+    <string name="tv_hero_lvl">1</string>
+    <string name="tv_hp">hp</string>
+    <string name="tv_mp">mp</string>
+    <string name="bt_plus_lvl">+1 lvl</string>
+    <string name="bt_minus_lvl">-1 lvl</string>
+    <string name="bt_max_lvl">Max lvl</string>
+    <string name="bt_reset_lvl">Reset</string>
+
+    <string name="tv_skill_name">Skill name</string>
+    <string name="tv_double">0.0</string>
+
+    <string name="tv_kills">K</string>
+    <string name="tv_deaths">D</string>
+    <string name="tv_assists">A</string>
+    <string name="tv_nickname">nickname</string>
+    <string name="tv_networth">networth</string>
+    <string name="tv_lh_dn">lh / dn</string>
+    <string name="tv_gpm_xpm">gpm / xpm</string>
+    <string name="tv_dmg">dmg</string>
+    <string name="tv_heal">heal</string>
+    <string name="tv_bld_dmg">bld</string>
+    <string name="tv_wards">wards</string>
+
+    <string name="et_solo_mmr">Solo mmr</string>
+    <string name="et_party_mmr">Party mmr</string>
+    <string name="et_estimated_mmr">Estimated mmr</string>
+    <string name="et_data">null</string>
+    <string name="bt_search">Search player</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_matches_history">MatchesHistoryActivity</string>
 </resources>

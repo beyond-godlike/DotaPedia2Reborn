@@ -7,6 +7,8 @@ import com.unava.dia.dotapedia2reborn.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import javax.inject.Inject
 
 class DotaPediaApp : Application(), HasActivityInjector {
@@ -19,6 +21,8 @@ class DotaPediaApp : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
         this.initDagger()
+        Realm.init(this)
+        Realm.setDefaultConfiguration(RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build())
     }
 
     private fun initDagger() {

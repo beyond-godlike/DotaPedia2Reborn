@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.unava.dia.dotapedia2reborn">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:name=".DotaPediaApp"
             android:allowBackup="true"
@@ -10,6 +12,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.updates.update.OneUpdateActivity">
+        </activity>
+        <activity android:name=".ui.updates.UpdatesActivity">
+        </activity>
+        <activity android:name=".ui.pedia.DotapediaActivity">
+        </activity>
+        <activity android:name=".ui.dotabuff.DotabuffActivity">
+        </activity>
+        <activity
+                android:name=".ui.dotabuff.history.MatchesHistoryActivity"
+                android:label="@string/title_activity_matches_history"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ui.dotabuff.match.MatchActivity">
+        </activity>
+        <activity android:name=".ui.dotabuff.checker.MmrCheckerActivity">
+        </activity>
         <activity android:name=".ui.heroConstructor.ctor.HeroConstructorActivity">
         </activity>
         <activity android:name=".ui.heroConstructor.picker.HeroPickerActivity">
