@@ -35,10 +35,6 @@ class MatchActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        //intent = Intent(this, MatchActivity.class)
-        //intent.putExtra("MATCH_NUMBER", id)
-        //startActivity(intent)
-
         val matchId = intent.extras.getString("MATCH_NUMBER")
         if(matchId != null) {
             this.viewModel.getMatch(matchId, BuildConfig.SteamAPIKEY)

@@ -10,7 +10,7 @@
 
     <TextView
             android:id="@+id/tvFindHistory"
-            android:layout_width="102dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,10 +29,10 @@
     />
     <Button
             android:id="@+id/btFindHistory"
-            android:layout_width="368dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/etFindHistory"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvFindHistory"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/bt_go"
             style="@style/AppTheme.ButtonDotabuff"
@@ -58,10 +58,39 @@
     />
     <Button
             android:id="@+id/btFindMatch"
-            android:layout_width="368dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/etFindMatch"
+            app:layout_constraintStart_toEndOf="@+id/tvFindMatch"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/bt_go"
+            style="@style/AppTheme.ButtonDotabuff"
+    />
+    <TextView
+            android:id="@+id/tvFindPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btFindMatch"
+            app:layout_constraintBottom_toTopOf="@+id/btFindPlayer"
+            android:text="@string/tv_find_player"
+            style="@style/AppTheme.TextViewDotabuff"
+    />
+    <EditText
+            android:id="@+id/etFindPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/btFindMatch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvFindPlayer"
+            style="@style/AppTheme.EditTextDotabuff"
+    />
+    <Button
+            android:id="@+id/btFindPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/etFindPlayer"
+            app:layout_constraintStart_toEndOf="@+id/tvFindPlayer"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/bt_go"
             style="@style/AppTheme.ButtonDotabuff"

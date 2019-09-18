@@ -9,83 +9,82 @@
 >
 
     <ImageView
-            android:id="@+id/playerIcon"
+            android:id="@+id/ivPlayerIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.ImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            style="@style/AppTheme.ImageViewMmrChecker"
     />
 
     <TextView
-            android:id="@+id/soloMmr"
+            android:id="@+id/tvLabelSoloMmr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playerIcon"
+            app:layout_constraintTop_toBottomOf="@+id/ivPlayerIcon"
             android:text="@string/et_solo_mmr"
             style="@style/AppTheme.TextViewDescriptionMmrChecker"
     />
 
     <TextView
-            android:id="@+id/textViewSoloMmr"
+            android:id="@+id/tvSoloMmr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/soloMmr"
-            app:layout_constraintTop_toBottomOf="@+id/playerIcon"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelSoloMmr"
+            app:layout_constraintTop_toBottomOf="@+id/ivPlayerIcon"
             android:text="@string/et_data"
             style="@style/AppTheme.TextViewDataMmrChecker"
     />
 
     <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tvLabelPartyMmr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/soloMmr"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelSoloMmr"
             android:text="@string/et_party_mmr"
             style="@style/AppTheme.TextViewDescriptionMmrChecker"
     />
 
     <TextView
-            android:id="@+id/textViewPartyMmr"
+            android:id="@+id/tvPartyMmr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSoloMmr"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelPartyMmr"
+            app:layout_constraintTop_toBottomOf="@+id/tvSoloMmr"
             android:text="@string/et_data"
             style="@style/AppTheme.TextViewDataMmrChecker"
     />
 
     <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tvLabelEstimatedMmr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.TextViewDescriptionMmrChecker"
-            android:text="@string/et_estimated_mmr"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelPartyMmr"
+            android:text="@string/et_estimated_mmr"
+            style="@style/AppTheme.TextViewDescriptionMmrChecker"
     />
 
     <TextView
-            android:id="@+id/textViewEstimatedMmr"
+            android:id="@+id/tvEstimatedMmr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/AppTheme.TextViewDataMmrChecker"
             android:text="@string/et_data"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPartyMmr"
+            app:layout_constraintStart_toEndOf="@+id/tvLabelEstimatedMmr"
+            app:layout_constraintTop_toBottomOf="@+id/tvPartyMmr"
+            style="@style/AppTheme.TextViewDataMmrChecker"
     />
 
     <EditText
             android:id="@+id/etPlayerId"
-            style="@style/AppTheme.EditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/playerIcon"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSoloMmr"
+            style="@style/AppTheme.EditTextMmrChecker"
     />
 
     <Button
@@ -93,8 +92,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/playerIcon"
             app:layout_constraintTop_toBottomOf="@+id/etPlayerId"
+            app:layout_constraintStart_toEndOf="@+id/tvEstimatedMmr"
             android:text="@string/bt_search"
             style="@style/AppTheme.ButtonMmrChecker"
     />

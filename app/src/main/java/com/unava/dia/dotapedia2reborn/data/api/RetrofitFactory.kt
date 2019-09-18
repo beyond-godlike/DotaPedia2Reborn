@@ -33,6 +33,7 @@ object RetrofitFactory {
     fun retrofit(): Retrofit = Retrofit.Builder()
         .client(okHttpClient)
         .baseUrl(BuildConfig.STEAM_URL)
+        .baseUrl(BuildConfig.OPENAPI_URL)
         .addConverterFactory(JacksonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()

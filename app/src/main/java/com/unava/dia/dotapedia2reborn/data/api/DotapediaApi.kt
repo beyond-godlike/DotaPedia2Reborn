@@ -6,6 +6,8 @@ import com.unava.dia.dotapedia2reborn.data.match.Player
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Path
+import com.unava.dia.dotapedia2reborn.data.mmrChecker.AccInformation
 
 interface DotapediaApi {
     @GET("IDOTA2Match_570/GetMatchDetails/v1/")
@@ -19,7 +21,6 @@ interface DotapediaApi {
     @GET("IEconDOTA2_570/GetHeroes/v0001/")
     suspend fun getHeroes(@Query("key") key: String) : Response<Heroes>
 
-    //  Get Player Profile
-    //    @GET("players/{accountId}")
-    //    Observable<AccInformation> getAccountInformation(@Path("accountId") String accountId);
+    @GET("players/{accountId}")
+    suspend fun getPlayerInfo(@Path("accountId") accountId: String): Response<AccInformation>
 }

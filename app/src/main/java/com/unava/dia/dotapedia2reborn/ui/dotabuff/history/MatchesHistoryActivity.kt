@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider
+import com.unava.dia.dotapedia2reborn.BuildConfig
 import com.unava.dia.dotapedia2reborn.R
 import dagger.android.AndroidInjection
 
@@ -26,7 +27,10 @@ class MatchesHistoryActivity : AppCompatActivity() {
     }
 
     private fun init() {
-
+        val playerId = intent.extras.getString("PLAYER_ID")
+        if(playerId != null) {
+            //this.viewModel.findHistory(playerId, BuildConfig.SteamAPIKEY)
+        }
     }
 
     private fun bindViewModel() {
