@@ -38,7 +38,7 @@ class HeroPickerAdapter(
                 val buttonIndex = holder.adapterPosition
 
                 val intent = Intent(activity, HeroConstructorActivity::class.java)
-                intent.flags = buttonIndex
+                intent.putExtra("HERO_ID", buttonIndex)
                 activity.startActivity(intent)
 
             }

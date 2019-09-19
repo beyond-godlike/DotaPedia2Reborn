@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.unava.dia.dotapedia2reborn.data.DotaHero
 import com.unava.dia.dotapedia2reborn.data.DotaHeroDao
+import com.unava.dia.dotapedia2reborn.data.Invoker
 import io.realm.RealmResults
 import javax.inject.Inject
 
@@ -15,9 +16,11 @@ class HeroConstructorViewModel @Inject constructor(
     private val heroes: MutableLiveData<RealmResults<DotaHero>> = MutableLiveData()
     var hero: MutableLiveData<DotaHero> = MutableLiveData()
     var skillDescription: MutableLiveData<String> = MutableLiveData()
+    var invoker: MutableLiveData<Invoker> = MutableLiveData()
 
     private var lvl = 1
     private var tempHero: DotaHero = DotaHero()
+    private var tempInvoker = Invoker()
 
     private fun loadHeroes() {
         val dotaHeroDao = DotaHeroDao(this.context)
@@ -137,12 +140,35 @@ class HeroConstructorViewModel @Inject constructor(
 
     fun updateSkillDescription(id: Int) {
         when(id) {
-            1 -> skillDescription.value = hero.value!!.aboutSkill1
-            2 -> skillDescription.value = hero.value!!.aboutSkill2
-            3 -> skillDescription.value = hero.value!!.aboutSkill3
+            1 -> {
+                skillDescription.value = hero.value!!.aboutSkill1
+                if(isInvoker(hero.value!!.name)) {
+                    tempInvoker.pushEnd("q")
+                }
+            }
+            2 -> {
+                skillDescription.value = hero.value!!.aboutSkill2
+                if(isInvoker(hero.value!!.name)) {
+                    tempInvoker.pushEnd("w")
+                }
+            }
+            3 -> {
+                skillDescription.value = hero.value!!.aboutSkill3
+                if(isInvoker(hero.value!!.name)) {
+                    tempInvoker.pushEnd("e")
+                }
+            }
             4 -> skillDescription.value = hero.value!!.aboutSkill4
             5 -> skillDescription.value = hero.value!!.aboutSkill5
-            6 -> skillDescription.value = hero.value!!.aboutSkill6
+            6 -> {
+                skillDescription.value = hero.value!!.aboutSkill6
+                tempInvoker.generatePath()
+                invoker.value = tempInvoker
+            }
         }
+    }
+
+    private fun isInvoker(name: String) : Boolean {
+        return name == "Invoker"
     }
 }
