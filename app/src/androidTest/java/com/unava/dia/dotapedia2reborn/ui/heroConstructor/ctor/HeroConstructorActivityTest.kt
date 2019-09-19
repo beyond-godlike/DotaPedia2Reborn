@@ -31,34 +31,39 @@ class HeroConstructorActivityTest {
 
     @Test
     fun addLvl() {
+        startActivity(10)
+
         onView(withId(R.id.btPlus)).check(matches(ViewMatchers.isDisplayed())).perform(click())
         onView(withId(R.id.tvLvl)).check(matches(withText(containsString("2"))))
     }
 
     @Test
     fun minusLvl() {
+        startActivity(4)
         onView(withId(R.id.btMinus)).check(matches(ViewMatchers.isDisplayed())).perform(click())
     }
 
     @Test
     fun resetLvl() {
+        startActivity(1)
+        onView(withId(R.id.btPlus)).check(matches(ViewMatchers.isDisplayed())).perform(click())
+        onView(withId(R.id.btPlus)).check(matches(ViewMatchers.isDisplayed())).perform(click())
+        onView(withId(R.id.btPlus)).check(matches(ViewMatchers.isDisplayed())).perform(click())
+
         onView(withId(R.id.btMinimum)).check(matches(ViewMatchers.isDisplayed())).perform(click())
-        onView(withId(R.id.tvLvl)).check(matches(withText(containsString("25"))))
+        onView(withId(R.id.tvLvl)).check(matches(withText(containsString("1"))))
     }
 
     @Test
     fun maxLvl() {
+        startActivity(116)
         onView(withId(R.id.btMaximum)).check(matches(ViewMatchers.isDisplayed())).perform(click())
         onView(withId(R.id.tvLvl)).check(matches(withText(containsString("25"))))
     }
 
     @Test
     fun addLvlRotate() {
-        Intents.init()
-        val intent = Intent()
-        intent.flags = 2
-        mActivityRule.launchActivity(intent)
-
+        startActivity(1)
         onView(withId(R.id.btPlus)).check(matches(ViewMatchers.isDisplayed())).perform(click())
         onView(withId(R.id.tvLvl)).check(matches(withText(containsString("2"))))
         mActivityRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -67,6 +72,7 @@ class HeroConstructorActivityTest {
 
     @Test
     fun maxLvlRotate() {
+        startActivity(112)
         onView(withId(R.id.btMaximum)).check(matches(ViewMatchers.isDisplayed())).perform(click())
         mActivityRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         onView(withId(R.id.tvLvl)).check(matches(withText(containsString("25"))))
@@ -74,5 +80,12 @@ class HeroConstructorActivityTest {
 
     @After
     fun tearDown() {
+    }
+
+    private fun startActivity(id: Int) {
+        Intents.init()
+        val intent = Intent()
+        intent.putExtra("HERO_ID", id)
+        mActivityRule.launchActivity(intent)
     }
 }
