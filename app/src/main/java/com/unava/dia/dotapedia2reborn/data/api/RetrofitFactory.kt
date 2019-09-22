@@ -1,6 +1,5 @@
 package com.unava.dia.dotapedia2reborn.data.api
 
-import com.unava.dia.dotapedia2reborn.BuildConfig
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.CipherSuite
 import okhttp3.ConnectionSpec
@@ -30,10 +29,9 @@ object RetrofitFactory {
         .addInterceptor(interceptor)
         .build()
 
-    fun retrofit(): Retrofit = Retrofit.Builder()
+    fun retrofit(baseUrl: String): Retrofit = Retrofit.Builder()
         .client(okHttpClient)
-        .baseUrl(BuildConfig.STEAM_URL)
-        .baseUrl(BuildConfig.OPENAPI_URL)
+        .baseUrl(baseUrl)
         .addConverterFactory(JacksonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()

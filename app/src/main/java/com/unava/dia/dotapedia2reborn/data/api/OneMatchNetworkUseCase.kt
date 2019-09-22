@@ -4,8 +4,9 @@ import com.unava.dia.dotapedia2reborn.data.heroes.Heroes
 import com.unava.dia.dotapedia2reborn.data.match.Player
 import com.unava.dia.dotapedia2reborn.domain.useCases.OneMatchUseCase
 import retrofit2.Response
+import javax.inject.Named
 
-class OneMatchNetworkUseCase(private val api: DotapediaApi) : OneMatchUseCase {
+class OneMatchNetworkUseCase(@Named("steamApi")private val api: DotapediaApi) : OneMatchUseCase {
     override suspend fun getHeroesAsync(KEY: String): Response<Heroes> {
         return api.getHeroes(KEY)
     }
