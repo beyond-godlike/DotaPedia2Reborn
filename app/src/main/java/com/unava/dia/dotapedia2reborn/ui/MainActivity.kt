@@ -1,6 +1,7 @@
 package com.unava.dia.dotapedia2reborn.ui
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.unava.dia.dotapedia2reborn.R
@@ -11,6 +12,8 @@ import com.unava.dia.dotapedia2reborn.ui.updates.UpdatesActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    var player: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +34,18 @@ class MainActivity : AppCompatActivity() {
         btHeroConstructor.setOnClickListener {
             startActivity(Intent(this, HeroPickerActivity::class.java))
         }
+
+        player = MediaPlayer.create(this, R.raw.maintheme)
+        player?.start()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        player?.release()
+        player = null
+    }
+
+
+
 }
