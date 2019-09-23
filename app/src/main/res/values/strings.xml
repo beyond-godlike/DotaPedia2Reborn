@@ -39,9 +39,9 @@
     <string name="et_data">null</string>
     <string name="bt_search">Search player</string>
 
-    <string name="tv_title">wards</string>
-    <string name="tv_description">wards</string>
-    <string name="tv_date">wards</string>
+    <string name="tv_title">title</string>
+    <string name="tv_description">description</string>
+    <string name="tv_date">date</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
