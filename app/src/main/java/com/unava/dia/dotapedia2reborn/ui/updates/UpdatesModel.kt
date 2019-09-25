@@ -1,15 +1,12 @@
 package com.unava.dia.dotapedia2reborn.ui.updates
 
-import org.jsoup.Jsoup
+import androidx.lifecycle.LiveData
+import com.unava.dia.dotapedia2reborn.data.articles.UpdatesEntity
+import com.unava.dia.dotapedia2reborn.data.articles.UpdatesRepository
 import javax.inject.Inject
 
-class UpdatesModel @Inject constructor() {
-    fun getUpdates() : String {
-        val doc = Jsoup.connect("http://www.dota2.com/news/updates/?l=russian")
-            .userAgent("Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B)")
-            .get()
-
-        return doc.outerHtml()
-
+class UpdatesModel @Inject constructor(private val updatesRepository: UpdatesRepository) {
+    fun getUpdates() : LiveData<List<UpdatesEntity>> {
+        return  updatesRepository.getUpdates()
     }
 }

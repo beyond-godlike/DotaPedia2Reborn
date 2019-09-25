@@ -2,6 +2,7 @@ package com.unava.dia.dotapedia2reborn.ui.updates
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.unava.dia.dotapedia2reborn.data.articles.UpdatesEntity
 import com.unava.dia.dotapedia2reborn.data.updates.UpdateArticle
 import com.unava.dia.dotapedia2reborn.data.updates.UpdatesParser
 import kotlinx.coroutines.CoroutineScope
@@ -14,7 +15,8 @@ import kotlin.coroutines.CoroutineContext
 class UpdatesViewModel @Inject constructor(private val model: UpdatesModel) : ViewModel() {
     val updatesErrorSubject: MutableLiveData<String> = MutableLiveData()
 
-    val articlesList: MutableLiveData<List<UpdateArticle>> = MutableLiveData()
+    //val articlesList: MutableLiveData<List<UpdateArticle>> = MutableLiveData()
+    val articlesList: MutableLiveData<List<UpdatesEntity>> = MutableLiveData()
 
     private val parentJob = Job()
     private val coroutineContext: CoroutineContext
@@ -30,7 +32,8 @@ class UpdatesViewModel @Inject constructor(private val model: UpdatesModel) : Vi
 //                articlesList.postValue(response)
 
                 val html = model.getUpdates()
-                val result = UpdatesParser.parseHtml(html)
+                //val result = UpdatesParser.parseHtml(html)
+                val result = html.value
                 articlesList.postValue(result)
             } catch (e: Exception) {
                 e.printStackTrace()

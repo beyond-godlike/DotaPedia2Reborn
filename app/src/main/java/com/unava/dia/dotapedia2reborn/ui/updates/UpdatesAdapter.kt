@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import com.unava.dia.dotapedia2reborn.R
+import com.unava.dia.dotapedia2reborn.data.articles.UpdatesEntity
 import com.unava.dia.dotapedia2reborn.data.updates.UpdateArticle
 import kotlinx.android.synthetic.main.card_one_update.view.*
 import com.unava.dia.dotapedia2reborn.ui.common.RecyclerViewClickListener
 
 class UpdatesAdapter : RecyclerView.Adapter<UpdatesAdapter.UpdatesViewHolder>() {
-    private var list: List<UpdateArticle> = ArrayList()
+    //private var list: List<UpdateArticle> = ArrayList()
+    private var list: List<UpdatesEntity> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpdatesViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_one_update, parent, false)
@@ -39,7 +41,7 @@ class UpdatesAdapter : RecyclerView.Adapter<UpdatesAdapter.UpdatesViewHolder>() 
         return list.size
     }
 
-    fun updateData(updates: List<UpdateArticle>) {
+    fun updateData(updates: List<UpdatesEntity>) {
         this.list = updates
         notifyDataSetChanged()
     }
