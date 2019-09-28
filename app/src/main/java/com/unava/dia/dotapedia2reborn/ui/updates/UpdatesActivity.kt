@@ -2,6 +2,7 @@ package com.unava.dia.dotapedia2reborn.ui.updates
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +41,9 @@ class UpdatesActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
+        this.viewModel.updatesErrorSubject.observe(this, Observer {
+            Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
+        })
         this.viewModel.articlesList.observe(this, Observer {
             adapter.updateData(it)
         })

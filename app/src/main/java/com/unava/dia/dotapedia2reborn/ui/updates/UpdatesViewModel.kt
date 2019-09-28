@@ -3,8 +3,6 @@ package com.unava.dia.dotapedia2reborn.ui.updates
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.unava.dia.dotapedia2reborn.data.articles.UpdatesEntity
-import com.unava.dia.dotapedia2reborn.data.updates.UpdateArticle
-import com.unava.dia.dotapedia2reborn.data.updates.UpdatesParser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -15,7 +13,6 @@ import kotlin.coroutines.CoroutineContext
 class UpdatesViewModel @Inject constructor(private val model: UpdatesModel) : ViewModel() {
     val updatesErrorSubject: MutableLiveData<String> = MutableLiveData()
 
-    //val articlesList: MutableLiveData<List<UpdateArticle>> = MutableLiveData()
     val articlesList: MutableLiveData<List<UpdatesEntity>> = MutableLiveData()
 
     private val parentJob = Job()
@@ -26,14 +23,11 @@ class UpdatesViewModel @Inject constructor(private val model: UpdatesModel) : Vi
     fun loadArticles() {
         scope.launch {
             try {
-//                val response = model.getUpdates().flatMap {
-//                    string -> UpdatesParser.parseHtml(string.toString()).orEmpty()
-//                }
-//                articlesList.postValue(response)
-
-                val html = model.getUpdates()
-                //val result = UpdatesParser.parseHtml(html)
-                val result = html.value
+                model.insertUpdates()
+                val result = model.getUpdates()
+                if(result.isEmpty()) {
+                    updatesErrorSubject.postValue("db is null")
+                }
                 articlesList.postValue(result)
             } catch (e: Exception) {
                 e.printStackTrace()

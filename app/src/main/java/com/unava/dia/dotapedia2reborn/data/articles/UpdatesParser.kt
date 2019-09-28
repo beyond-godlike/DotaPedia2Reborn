@@ -1,6 +1,5 @@
-package com.unava.dia.dotapedia2reborn.data.updates
+package com.unava.dia.dotapedia2reborn.data.articles
 
-import com.unava.dia.dotapedia2reborn.data.articles.UpdatesEntity
 import org.jsoup.Jsoup
 
 
