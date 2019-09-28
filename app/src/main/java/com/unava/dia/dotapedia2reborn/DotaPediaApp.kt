@@ -1,7 +1,6 @@
 package com.unava.dia.dotapedia2reborn
 
 import android.app.Activity
-import android.app.Application
 import androidx.multidex.MultiDexApplication
 import com.unava.dia.dotapedia2reborn.di.AppComponent
 import com.unava.dia.dotapedia2reborn.di.DaggerAppComponent

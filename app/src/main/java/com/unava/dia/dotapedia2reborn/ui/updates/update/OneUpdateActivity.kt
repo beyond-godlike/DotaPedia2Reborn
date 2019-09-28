@@ -2,6 +2,7 @@ package com.unava.dia.dotapedia2reborn.ui.updates.update
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.unava.dia.dotapedia2reborn.R
 import dagger.android.AndroidInjection
@@ -20,6 +21,9 @@ class OneUpdateActivity : AppCompatActivity() {
         AndroidInjection.inject(this)
         this.bindViewModel()
         init()
+
+        // TODO remove later
+        Toast.makeText(applicationContext, intent.extras.getString("URL_TO_FULL_ARTICLE"), Toast.LENGTH_SHORT).show()
     }
 
     private fun init() {
