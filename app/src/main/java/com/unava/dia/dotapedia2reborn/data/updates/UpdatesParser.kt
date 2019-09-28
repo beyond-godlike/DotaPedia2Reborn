@@ -5,12 +5,20 @@ import org.jsoup.Jsoup
 
 class UpdatesParser {
     companion object {
-        fun loadHtml(): String {
-            val doc = Jsoup.connect("http://www.dota2.com/news/updates/?l=russian")
+        fun loadHtml(url: String): String {
+            val doc = Jsoup.connect(url)
                 .userAgent("Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B)")
                 .get()
 
             return doc.outerHtml()
+        }
+
+        fun filterHtml(html: String) : String {
+            val document = Jsoup.parse(html)
+            document.select("div#navBarBGRepeat.DotaFont").remove()
+            document.select("div#primary").remove()
+            document.select("div#footer").remove()
+            return document.html()
         }
 
         fun parseHtml(html: String): List<UpdatesEntity>? {
