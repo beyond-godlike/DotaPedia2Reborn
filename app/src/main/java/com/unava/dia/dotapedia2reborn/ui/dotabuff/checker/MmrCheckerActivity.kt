@@ -48,8 +48,6 @@ class MmrCheckerActivity : AppCompatActivity() {
             Toast.makeText(this, error, Toast.LENGTH_LONG).show()
         })
         this.viewModel.accInfo.observe(this, Observer {
-            Toast.makeText(this, "data changed", Toast.LENGTH_SHORT).show()
-
             PicassoUtils.setPlayerIcon(ivPlayerIcon, it?.profile?.avatarfull.toString())
             tvEstimatedMmr.text = it?.mmr_estimate?.estimate.toString()
             tvSoloMmr.text = it?.solo_competitive_rank

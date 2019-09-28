@@ -48,7 +48,7 @@ class MatchActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         this.viewModel.oneMatchResult.observe(this, Observer {
-            Toast.makeText(applicationContext, "Success!!", Toast.LENGTH_LONG).show()
+            //Toast.makeText(applicationContext, "Success!!", Toast.LENGTH_LONG).show()
         })
         this.viewModel.oneMatchErrorSubject.observe(this, Observer { error ->
             Toast.makeText(applicationContext, error, Toast.LENGTH_LONG).show()

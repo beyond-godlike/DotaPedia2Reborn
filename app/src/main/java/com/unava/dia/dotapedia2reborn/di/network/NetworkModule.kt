@@ -4,6 +4,7 @@ import dagger.Module
 
 @Module(includes = [
     RetrofitModule::class,
-    ApiModule::class
+    ApiModule::class,
+    RoomModule::class
 ])
 abstract class NetworkModule
