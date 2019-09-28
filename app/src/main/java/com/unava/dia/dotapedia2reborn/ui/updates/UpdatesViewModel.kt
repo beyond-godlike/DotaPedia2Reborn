@@ -2,7 +2,7 @@ package com.unava.dia.dotapedia2reborn.ui.updates
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.unava.dia.dotapedia2reborn.data.articles.UpdatesEntity
+import com.unava.dia.dotapedia2reborn.data.updates.UpdatesEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

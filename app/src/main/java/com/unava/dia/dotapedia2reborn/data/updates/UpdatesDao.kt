@@ -1,4 +1,4 @@
-package com.unava.dia.dotapedia2reborn.data.articles
+package com.unava.dia.dotapedia2reborn.data.updates
 
 import androidx.room.*
 
@@ -15,14 +15,4 @@ interface UpdatesDao {
 
     @Query("SELECT * FROM updates")
     fun getUpdates(): List<UpdatesEntity>
-
-//    @Query("SELECT * FROM updates")
-//    fun loadUpdates() : LiveData<List<UpdatesEntity>>
-//
-//    @Insert(onConflict = REPLACE)
-//    @JvmSuppressWildcards
-//    fun insertAll(updates: List<UpdatesEntity>)
-
-//    @Query("DELETE from updates")
-//    fun deleteAll()
 }

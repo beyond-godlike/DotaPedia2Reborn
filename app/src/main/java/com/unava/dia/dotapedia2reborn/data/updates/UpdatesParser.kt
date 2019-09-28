@@ -1,12 +1,11 @@
-package com.unava.dia.dotapedia2reborn.data.articles
+package com.unava.dia.dotapedia2reborn.data.updates
 
 import org.jsoup.Jsoup
 
 
-
 class UpdatesParser {
     companion object {
-        fun loadHtml() : String {
+        fun loadHtml(): String {
             val doc = Jsoup.connect("http://www.dota2.com/news/updates/?l=russian")
                 .userAgent("Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B)")
                 .get()
@@ -25,10 +24,9 @@ class UpdatesParser {
                 for (i in 0 until elements.size) {
                     val el = elements[i]
 
-                    if(el.select("h2.entry-title").text() == "") {
+                    if (el.select("h2.entry-title").text() == "") {
 
-                    }
-                    else {
+                    } else {
                         val card = UpdatesEntity(
                             el.select("div.entry-meta").text(),
                             el.select("div.entry-content").html(),

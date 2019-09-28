@@ -1,8 +1,8 @@
 package com.unava.dia.dotapedia2reborn.di.network
 
 import android.app.Application
-import com.unava.dia.dotapedia2reborn.data.articles.UpdatesDao
-import com.unava.dia.dotapedia2reborn.data.articles.UpdatesDatabase
+import com.unava.dia.dotapedia2reborn.data.updates.UpdatesDao
+import com.unava.dia.dotapedia2reborn.data.updates.UpdatesDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

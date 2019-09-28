@@ -1,5 +1,6 @@
 package com.unava.dia.dotapedia2reborn.ui.updates
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
+import com.unava.dia.dotapedia2reborn.ui.updates.update.OneUpdateActivity
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_updates.*
 import javax.inject.Inject
@@ -53,5 +55,12 @@ class UpdatesActivity : AppCompatActivity() {
         adapter = UpdatesAdapter()
         rvUpdates.adapter = adapter
         rvUpdates.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL ,false)
+
+        adapter.onItemClick = { it ->
+            val intent = Intent(this, OneUpdateActivity::class.java)
+            intent.putExtra("UPDATE_NUMBER", it)
+            intent.putExtra("URL_TO_FULL_ARTICLE", viewModel.articlesList.value?.get(it)?.urlToFullArticle)
+            startActivity(intent)
+        }
     }
 }

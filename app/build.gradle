@@ -18,6 +18,12 @@ android {
         useLibrary 'android.test.base'
         useLibrary 'android.test.mock'
         multiDexEnabled true
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas".toString())
+            }
+        }
     }
 
     buildTypes {
