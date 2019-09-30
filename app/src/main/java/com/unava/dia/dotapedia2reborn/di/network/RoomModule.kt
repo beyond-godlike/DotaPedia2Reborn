@@ -11,13 +11,13 @@ import javax.inject.Singleton
 class RoomModule {
     @Provides
     @Singleton
-    fun provideUpdatesDatabase(application: Application) : UpdatesDatabase {
+    fun provideUpdatesDatabase(application: Application): UpdatesDatabase {
         return UpdatesDatabase.getInstance(application)
     }
 
     @Provides
     @Singleton
-    fun provideUpdatesDao(updatesDatabase : UpdatesDatabase) : UpdatesDao {
+    fun provideUpdatesDao(updatesDatabase: UpdatesDatabase): UpdatesDao {
         return updatesDatabase.updatesDao()
     }
 }

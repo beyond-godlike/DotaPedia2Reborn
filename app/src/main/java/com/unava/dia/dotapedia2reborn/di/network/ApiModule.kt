@@ -12,14 +12,14 @@ class ApiModule {
     @Provides
     @Singleton
     @Named("openApi")
-    fun provideOpenApi (@Named("openApiRetrofit") retrofit: Retrofit) : DotapediaApi {
+    fun provideOpenApi(@Named("openApiRetrofit") retrofit: Retrofit): DotapediaApi {
         return retrofit.create(DotapediaApi::class.java)
     }
 
     @Provides
     @Singleton
     @Named("steamApi")
-    fun provideSteamApi (@Named("steamRetrofit") retrofit: Retrofit) : DotapediaApi {
+    fun provideSteamApi(@Named("steamRetrofit") retrofit: Retrofit): DotapediaApi {
         return retrofit.create(DotapediaApi::class.java)
     }
 }

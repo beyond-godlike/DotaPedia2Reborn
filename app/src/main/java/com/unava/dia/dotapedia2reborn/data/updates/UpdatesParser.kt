@@ -13,7 +13,7 @@ class UpdatesParser {
             return doc.outerHtml()
         }
 
-        fun filterHtml(html: String) : String {
+        fun filterHtml(html: String): String {
             val document = Jsoup.parse(html)
             document.select("div#navBarBGRepeat.DotaFont").remove()
             document.select("div#primary").remove()

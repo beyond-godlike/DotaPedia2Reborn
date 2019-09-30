@@ -1,11 +1,15 @@
 package com.unava.dia.dotapedia2reborn.ui.dotabuff.history
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.BuildConfig
 import com.unava.dia.dotapedia2reborn.R
+import com.unava.dia.dotapedia2reborn.data.history.Result
 import dagger.android.AndroidInjection
 
 import kotlinx.android.synthetic.main.activity_matches_history.*
@@ -18,6 +22,9 @@ class MatchesHistoryActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModel: MatchesHistoryViewModel
 
+    // TODO shouldn`t be here
+    private var heroesMap: HashMap<Int, String> = HashMap()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_matches_history)
@@ -29,7 +36,7 @@ class MatchesHistoryActivity : AppCompatActivity() {
     private fun init() {
         val playerId = intent.extras.getString("PLAYER_ID")
         if(playerId != null) {
-            //this.viewModel.findHistory(playerId, BuildConfig.SteamAPIKEY)
+            this.viewModel.findHistory(playerId, BuildConfig.SteamAPIKEY)
         }
     }
 
@@ -39,7 +46,21 @@ class MatchesHistoryActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
+        this.viewModel.matchesHistoryErrorSubject.observe(this, Observer { error->
+            Toast.makeText(applicationContext, error, Toast.LENGTH_LONG).show()
+        })
+        this.viewModel.mapResult.observe(this, Observer { map->
+            heroesMap = map
+        })
+        this.viewModel.matchesResult.observe(this, Observer {
+            initAdapter(it)
+        })
+    }
 
+    private fun initAdapter(history: Result) {
+        val adapter = MatchesHistoryAdapter(history, heroesMap)
+        rvMatchesHistory.adapter = adapter
+        rvMatchesHistory.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL ,false)
     }
 
 }
