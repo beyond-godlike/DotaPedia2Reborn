@@ -9,15 +9,14 @@ import java.io.InputStream
 class DotaHeroDao(private val context: Context) {
     private val realm = Realm.getDefaultInstance()
     fun initRepos() {
-        if(realm.isEmpty){
+        if (realm.isEmpty) {
             try {
                 val inputStream: InputStream = context.assets.open("heroes.json")
                 realm.beginTransaction()
                 realm.createAllFromJson(DotaHero::class.java, inputStream)
                 realm.commitTransaction()
-            }
-            catch (e: Throwable) {
-                if(realm.isInTransaction) {
+            } catch (e: Throwable) {
+                if (realm.isInTransaction) {
                     realm.cancelTransaction()
                 }
                 throw RuntimeException(e)
@@ -25,7 +24,7 @@ class DotaHeroDao(private val context: Context) {
         }
     }
 
-    fun loadRepos() : RealmResults<DotaHero> {
+    fun loadRepos(): RealmResults<DotaHero> {
         return realm.where(DotaHero::class.java)
             .findAll()
     }

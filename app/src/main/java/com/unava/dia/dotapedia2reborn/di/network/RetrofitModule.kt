@@ -13,14 +13,14 @@ class RetrofitModule {
     @Provides
     @Singleton
     @Named("openApiRetrofit")
-    fun provideOpenApiRetrofit() : Retrofit {
+    fun provideOpenApiRetrofit(): Retrofit {
         return RetrofitFactory.retrofit(BuildConfig.OPENAPI_URL)
     }
 
     @Provides
     @Singleton
     @Named("steamRetrofit")
-    fun provideSteamRetrofit() : Retrofit {
+    fun provideSteamRetrofit(): Retrofit {
         return RetrofitFactory.retrofit(BuildConfig.STEAM_URL)
     }
 }

@@ -21,7 +21,7 @@ class MatchActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModel: MatchViewModel
 
-    private lateinit var adapter: MatchAdapter
+    //private lateinit var adapter: MatchAdapter
 
     // TODO shouldn`t be here
     private var heroesMap: HashMap<Int, String> = HashMap()

@@ -19,7 +19,14 @@
         <item name="android:layout_margin">@dimen/spacing_fab</item>
     </style>
 
-    <style name="AppTheme.LinearLayoutMainActivity">
+    <style name="Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/primaryColor</item>
+    </style>
+
+
+<style name="AppTheme.LinearLayoutMainActivity">
         <item name="android:layout_marginLeft">@dimen/spacing_medium</item>
         <item name="android:layout_marginTop">@dimen/spacing_medium</item>
         <item name="android:layout_marginRight">@dimen/spacing_medium</item>
