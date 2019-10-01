@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.BuildConfig
 import com.unava.dia.dotapedia2reborn.R
-import com.unava.dia.dotapedia2reborn.data.history.Result
+import com.unava.dia.dotapedia2reborn.data.history.HistoryMatch
 import dagger.android.AndroidInjection
 
 import kotlinx.android.synthetic.main.activity_matches_history.*
@@ -36,7 +36,7 @@ class MatchesHistoryActivity : AppCompatActivity() {
     private fun init() {
         val playerId = intent.extras.getString("PLAYER_ID")
         if(playerId != null) {
-            this.viewModel.findHistory(playerId, BuildConfig.SteamAPIKEY)
+            this.viewModel.findHistory(playerId)
         }
     }
 
@@ -57,10 +57,9 @@ class MatchesHistoryActivity : AppCompatActivity() {
         })
     }
 
-    private fun initAdapter(history: Result) {
+    private fun initAdapter(history: ArrayList<HistoryMatch>) {
         val adapter = MatchesHistoryAdapter(history, heroesMap)
         rvMatchesHistory.adapter = adapter
         rvMatchesHistory.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL ,false)
     }
-
 }

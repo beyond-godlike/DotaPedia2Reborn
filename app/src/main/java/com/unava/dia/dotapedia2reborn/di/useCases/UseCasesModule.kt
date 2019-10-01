@@ -28,7 +28,7 @@ class UseCasesModule {
 
     @Singleton
     @Provides
-    fun provideMatchesHistoryUseCase(@Named("steamApi") api: DotapediaApi): MatchesHistoryUseCase {
+    fun provideMatchesHistoryUseCase(@Named("openApi") api: DotapediaApi): MatchesHistoryUseCase {
         return MatchesHistoryNetworkUseCase(api)
     }
 }
