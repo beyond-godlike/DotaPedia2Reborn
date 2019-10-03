@@ -10,4 +10,8 @@ class UpdatesRepository @Inject constructor(private val updatesDao: UpdatesDao) 
     fun insertUpdate(update: UpdatesEntity) {
         updatesDao.insertUpdate(update)
     }
+
+    fun deleteAll() {
+        updatesDao.deleteAllUpdates()
+    }
 }

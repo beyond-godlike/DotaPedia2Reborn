@@ -2,6 +2,7 @@ package com.unava.dia.dotapedia2reborn.ui.updates.update
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.webkit.WebView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -22,6 +23,8 @@ class OneUpdateActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModel: OneUpdateViewModel
 
+    lateinit var webWiew: WebView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_one_update)
@@ -32,7 +35,10 @@ class OneUpdateActivity : AppCompatActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun init() {
+        webWiew = WebView(applicationContext)
+        webContainer.addView(webWiew)
         webWiew.settings.javaScriptEnabled = true
+
         val articleUrl = intent?.extras?.getString("URL_TO_FULL_ARTICLE")
 
         if( articleUrl != null) {
@@ -52,5 +58,11 @@ class OneUpdateActivity : AppCompatActivity() {
         this.viewModel.article.observe(this, Observer {
             webWiew.loadDataWithBaseURL("", it, "text/html","UTF-8", "")
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        webContainer.removeAllViews()
+        webWiew.destroy()
     }
 }

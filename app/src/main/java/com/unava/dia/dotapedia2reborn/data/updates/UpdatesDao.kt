@@ -13,6 +13,9 @@ interface UpdatesDao {
     @Delete
     fun deleteUpdate(update: UpdatesEntity)
 
+    @Query("DELETE FROM updates")
+    fun deleteAllUpdates()
+
     @Query("SELECT * FROM updates")
     fun getUpdates(): List<UpdatesEntity>
 }

@@ -12,10 +12,16 @@ class UpdatesModel @Inject constructor(private val updatesRepository: UpdatesRep
     }
 
     fun insertUpdates() {
+        // TODO if db is empty
+
         val html = UpdatesParser.loadHtml(BuildConfig.UPDATES_URL)
         val updatesList = UpdatesParser.parseHtml(html)
         updatesList?.forEach {
             updatesRepository.insertUpdate(it)
         }
+    }
+
+    fun clearAllUpdates() {
+        updatesRepository.deleteAll()
     }
 }
