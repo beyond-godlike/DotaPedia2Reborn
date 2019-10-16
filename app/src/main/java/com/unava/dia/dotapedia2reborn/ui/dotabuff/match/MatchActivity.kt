@@ -21,8 +21,6 @@ class MatchActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModel: MatchViewModel
 
-    //private lateinit var adapter: MatchAdapter
-
     // TODO shouldn`t be here
     private var heroesMap: HashMap<Int, String> = HashMap()
 
@@ -62,7 +60,7 @@ class MatchActivity : AppCompatActivity() {
     }
 
     private fun initAdapter(match: Match) {
-        val adapter = MatchAdapter(match, heroesMap)
+        val adapter = MatchAdapter(match.players!!, heroesMap)
         rvMatchStats.adapter = adapter
         rvMatchStats.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL ,false)
     }

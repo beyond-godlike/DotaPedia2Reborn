@@ -7,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.unava.dia.dotapedia2reborn.R
-import com.unava.dia.dotapedia2reborn.data.Invoker
-import com.unava.dia.dotapedia2reborn.utils.PicassoUtils
-import com.unava.dia.dotapedia2reborn.utils.ProjectConstants
-import com.unava.dia.dotapedia2reborn.utils.Utils
+import com.unava.dia.dotapedia2reborn.ui.common.PicassoUtils
+import com.unava.dia.dotapedia2reborn.ui.common.ProjectConstants
+import com.unava.dia.dotapedia2reborn.ui.common.Utils
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_hero_ctor.*
 import javax.inject.Inject

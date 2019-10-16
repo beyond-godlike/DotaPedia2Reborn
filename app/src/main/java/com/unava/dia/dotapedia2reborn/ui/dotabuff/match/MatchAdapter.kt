@@ -7,21 +7,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
-import com.unava.dia.dotapedia2reborn.data.match.Match
 import com.unava.dia.dotapedia2reborn.data.match.Result
-import com.unava.dia.dotapedia2reborn.utils.PicassoUtils
+import com.unava.dia.dotapedia2reborn.ui.common.PicassoUtils
 import kotlinx.android.synthetic.main.card_one_match.view.*
 
-class MatchAdapter(l: Match, heroesMap: HashMap<Int, String>) :
+class MatchAdapter(
+    private val list: ArrayList<Result>,
+    private val icons: HashMap<Int, String>
+) :
     RecyclerView.Adapter<MatchAdapter.Companion.MatchViewHolder>() {
-
-    private var list: ArrayList<Result> = ArrayList()
-    private var icons: Map<Int, String> = HashMap()
-
-    init {
-        this.list = l.players!!
-        this.icons = heroesMap
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_one_match, parent, false)

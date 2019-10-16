@@ -1,4 +1,4 @@
-package com.unava.dia.dotapedia2reborn.utils
+package com.unava.dia.dotapedia2reborn.ui.common
 
 import android.content.Context
 import java.io.IOException

@@ -48,6 +48,8 @@
     <string name="very_high_skill">Normal Skill</string>
     <string name="unknown_skill">Normal Skill</string>
 
+    <string name="tv_hero_name">Hero name</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class HistoryMatch(
     @JsonProperty("match_id")
-    var matchId: Float? = null,
+    var matchId: Any? = null,
 
     @JsonProperty("player_slot")
     var playerSlot: Int? = null,
@@ -25,7 +25,7 @@ data class HistoryMatch(
     var heroId: Int? = null,
 
     @JsonProperty("start_time")
-    var startTime: Float? = null,
+    var startTime: Long? = null,
 
     @JsonProperty("version")
     var version: Int? = null,

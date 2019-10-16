@@ -7,23 +7,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
-import com.unava.dia.dotapedia2reborn.data.history.HistoryMatch
-import com.unava.dia.dotapedia2reborn.utils.PicassoUtils
+import com.unava.dia.dotapedia2reborn.data.history.*
+import com.unava.dia.dotapedia2reborn.ui.common.PicassoUtils
 import kotlinx.android.synthetic.main.card_matches_history.view.*
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
-class MatchesHistoryAdapter(history: ArrayList<HistoryMatch>, heroesMap: HashMap<Int, String>) :
-    RecyclerView.Adapter<MatchesHistoryAdapter.Companion.MatchesHistoryViewHolder>() {
+class MatchesHistoryAdapter(
+    private val heroes: ArrayList<HeroInfo>,
+    private val matches: ArrayList<HistoryMatch>
+) :
+    RecyclerView.Adapter<MatchesHistoryAdapter.MatchesHistoryViewHolder>() {
 
-    private var list: ArrayList<HistoryMatch> = ArrayList()
-    private var icons: Map<Int, String> = HashMap()
-
-    init {
-        this.list = history
-        this.icons = heroesMap
-    }
+    var onItemClick: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchesHistoryViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_matches_history, parent, false)
@@ -32,34 +27,33 @@ class MatchesHistoryAdapter(history: ArrayList<HistoryMatch>, heroesMap: HashMap
     }
 
     override fun onBindViewHolder(holder: MatchesHistoryViewHolder, position: Int) {
-        val heroName: String? = this.icons[list[position].heroId]
-        if (heroName != null) PicassoUtils.setHeroIconSmall(holder.heroIcon, heroName)
+        val hero = heroes.find { it.heroId == matches[position].heroId }
 
-        // TODO show localized name
-        //holder.nickname.text = (list[position].accountId.toString())
-
-        when {
-            list[position].skill == 1 -> holder.skillbracket.text = "Normal Skill"
-            list[position].skill == 2 -> holder.skillbracket.text = "High Skill"
-            list[position].skill == 3 -> holder.skillbracket.text = "Very High Skill"
-            else -> holder.skillbracket.text = "Unknown Skill"
+        holder.matchId = matches[position].matchId.toString()
+        PicassoUtils.setHeroIconSmall(holder.heroIcon, hero?.name!!)
+        holder.heroName.text = hero.localizedName
+        if (matches[position].skill != null) {
+            holder.skillbracket.text = SkillBrackets.brackets[matches[position].skill!!]
+        } else {
+            holder.skillbracket.text = SkillBrackets.brackets[0]
         }
-        holder.winLost.text = (" win: " + list[position].radiantWin.toString())
-
-        val dur = getTime(list[position].duration!!)
-        holder.duration.text = dur
-
-        holder.startTime.text = (list[position].startTime.toString())
-        holder.type.text = (list[position].gameMode.toString())
-        holder.matchType.text = (list[position].lobbyType.toString())
+        if (matches[position].radiantWin == true) {
+            holder.winLost.text = "Won Match"
+        } else {
+            holder.winLost.text = "Lost Match"
+        }
+        holder.duration.text = getTime(matches[position].duration!!)
+        holder.startTime.text = getDays(matches[position].startTime!!)
+        holder.type.text = GameModes.modes[matches[position].gameMode!!]
+        holder.matchType.text = LobbyTypes.types[matches[position].lobbyType!!]
         holder.kda.text = (
-                list[position].kills.toString() + " / " +
-                list[position].deaths.toString()  + " / " +
-                list[position].assists.toString() + " "
+                matches[position].kills.toString() + " / " +
+                        matches[position].deaths.toString() + " / " +
+                        matches[position].assists.toString() + " "
                 )
     }
 
-    private fun getTime(totalSecs: Long) : String {
+    private fun getTime(totalSecs: Long): String {
         val hours = totalSecs / 3600
         val minutes = (totalSecs % 3600) / 60
         val seconds = totalSecs % 60
@@ -67,21 +61,33 @@ class MatchesHistoryAdapter(history: ArrayList<HistoryMatch>, heroesMap: HashMap
         return String.format(Locale.ENGLISH, "%02d:%02d:%02d", hours, minutes, seconds)
     }
 
-    override fun getItemCount(): Int {
-        return list.size
+    private fun getDays(totalSecs: Long): String {
+        val days = totalSecs / (3600 * 60 * 60 * 24)
+        return days.toString().plus(" days ago")
     }
 
-    companion object {
-        class MatchesHistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var heroIcon: ImageView = itemView.ivHeroIcon
-            var heroName: TextView = itemView.tvNickname
-            var skillbracket: TextView = itemView.tvSkillbracket
-            var winLost: TextView = itemView.tvWinLost
-            var startTime: TextView = itemView.tvStartTime
-            var type: TextView = itemView.tvType
-            var matchType: TextView = itemView.tvMatchType
-            var duration: TextView = itemView.tvDuration
-            var kda: TextView = itemView.tvKDA
+    override fun getItemCount(): Int {
+        return matches.size
+    }
+
+    inner class MatchesHistoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var matchId: String? = null
+        var heroIcon: ImageView = itemView.ivHeroIcon
+        var heroName: TextView = itemView.tvNickname
+        var skillbracket: TextView = itemView.tvSkillbracket
+        var winLost: TextView = itemView.tvWinLost
+        var startTime: TextView = itemView.tvStartTime
+        var type: TextView = itemView.tvType
+        var matchType: TextView = itemView.tvMatchType
+        var duration: TextView = itemView.tvDuration
+        var kda: TextView = itemView.tvKDA
+
+        init {
+            itemView.setOnClickListener {
+                if (matchId != null)
+                    onItemClick?.invoke(matchId!!)
+            }
         }
+
     }
 }

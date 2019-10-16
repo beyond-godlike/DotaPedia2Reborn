@@ -48,7 +48,7 @@ class UpdatesActivity : AppCompatActivity() {
         })
         this.viewModel.articlesList.observe(this, Observer {
             adapter.updateData(it)
-            Toast.makeText(applicationContext, it.size.toString(), Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext, it.size.toString(), Toast.LENGTH_SHORT).show()
         })
     }
 

@@ -1,0 +1,228 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            tools:context="com.unava.dia.dotapedia2reborn.ui.pedia.DotapediaActivity">
+
+        <TextView
+                android:id="@+id/tvHeroName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/AppTheme.TextViewDotapediaHeroName"
+                tools:text="@string/tv_hero_name"
+        />
+
+        <ImageView
+                android:id="@+id/ivHeroIcon"
+                android:layout_width="256dp"
+                android:layout_height="144dp"
+                android:layout_marginTop="16dp"
+                android:foreground="@drawable/round_shape"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeroName"
+                app:srcCompat="@drawable/axe"
+        />
+
+        <TextView
+                android:id="@+id/tvHeroHistory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="cursive"
+                android:padding="20dp"
+                android:scrollbars="vertical"
+                android:textAppearance="@style/TextAppearance.AppCompat.Tooltip"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+                tools:text="history"
+        />
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivHeroIcon"
+        >
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+            >
+
+                <ImageView
+                        android:id="@+id/ivStrength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        app:srcCompat="@drawable/strength"
+                />
+
+                <TextView
+                        android:id="@+id/tvStrength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        style="@style/AppTheme.TextViewAttrs"
+                        tools:text="strength"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+            >
+
+                <ImageView
+                        android:id="@+id/ivAgility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/agility"
+                />
+
+                <TextView
+                        android:id="@+id/tvAgility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        style="@style/AppTheme.TextViewAttrs"
+                        tools:text="agility"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+            >
+
+                <ImageView
+                        android:id="@+id/ivIntelligence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        app:srcCompat="@drawable/intelligence"
+                />
+
+                <TextView
+                        android:id="@+id/tvIntelligence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        style="@style/AppTheme.TextViewAttrs"
+                        tools:text="inteligence"
+                />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout4"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginStart="@dimen/spacing_medium"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                app:layout_constraintLeft_toLeftOf="parent"
+        >
+            <TextView
+                    android:id="@+id/hero_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.TextViewChars"
+                    tools:text="speed"
+            />
+
+            <TextView
+                    android:id="@+id/hero_damage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.TextViewChars"
+                    tools:text="damage"
+            />
+
+            <TextView
+                    android:id="@+id/hero_armor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    style="@style/AppTheme.TextViewChars"
+                    tools:text="armor"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        >
+
+            <ImageButton
+                    android:id="@+id/skill1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/skill_one"
+                    style="@style/AppTheme.ImageButton"
+            />
+
+            <ImageButton
+                    android:id="@+id/skill2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/skill_two"
+                    style="@style/AppTheme.ImageButton"
+            />
+
+            <ImageButton
+                    android:id="@+id/skill3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/skill_three"
+                    style="@style/AppTheme.ImageButton"
+            />
+
+            <ImageButton
+                    android:id="@+id/skill6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/skill_four"
+                    style="@style/AppTheme.ImageButton"
+            />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

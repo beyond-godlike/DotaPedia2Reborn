@@ -1,5 +1,3 @@
-@file:Suppress("UNREACHABLE_CODE")
-
 package com.unava.dia.dotapedia2reborn.ui
 
 import android.content.Intent
@@ -7,7 +5,6 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import com.unava.dia.dotapedia2reborn.R
@@ -40,17 +37,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, HeroPickerActivity::class.java))
         }
 
-        if(getMusicPrefs()) {
-            playMusic()
+        if (getMusicPrefs()) {
+            player = MediaPlayer.create(this, R.raw.maintheme)
+            player?.start()
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when(item!!.isChecked) {
+        super.onOptionsItemSelected(item)
+        return when (item!!.isChecked) {
             true -> {
                 setMusicPrefs(true)
-                playMusic()
+                player?.start()
                 item.icon = resources.getDrawable(R.drawable.mute)
+                item.isChecked = false
                 true
             }
             false -> {
@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                 true
             }
         }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -80,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         editor.apply()
     }
 
-    private fun getMusicPrefs() : Boolean {
+    private fun getMusicPrefs(): Boolean {
         val sPref = getPreferences(MODE_PRIVATE)
         return sPref.getBoolean("MUSIC_ON_OFF", false)
     }
@@ -91,10 +90,4 @@ class MainActivity : AppCompatActivity() {
         player?.release()
         player = null
     }
-
-    private fun playMusic() {
-        player = MediaPlayer.create(this, R.raw.maintheme)
-        player?.start()
-    }
-
 }

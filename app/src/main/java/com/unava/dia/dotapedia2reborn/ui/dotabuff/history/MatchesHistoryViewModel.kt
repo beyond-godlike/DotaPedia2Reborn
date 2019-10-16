@@ -2,7 +2,6 @@ package com.unava.dia.dotapedia2reborn.ui.dotabuff.history
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.unava.dia.dotapedia2reborn.data.heroes.Hero
 import com.unava.dia.dotapedia2reborn.data.history.HeroInfo
 import com.unava.dia.dotapedia2reborn.data.history.HistoryMatch
 import kotlinx.coroutines.CoroutineScope
@@ -17,7 +16,8 @@ class MatchesHistoryViewModel @Inject constructor(private val model: MatchesHist
     val matchesHistoryErrorSubject: MutableLiveData<String> = MutableLiveData()
 
     var matchesResult: MutableLiveData<ArrayList<HistoryMatch>> = MutableLiveData()
-    var mapResult: MutableLiveData<HashMap<Int, String>> = MutableLiveData()
+    var heroesResult: MutableLiveData<ArrayList<HeroInfo>> = MutableLiveData()
+    //var mapResult: MutableLiveData<HashMap<Int, String>> = MutableLiveData()
 
     private val parentJob = Job()
     private val coroutineContext: CoroutineContext
@@ -31,10 +31,9 @@ class MatchesHistoryViewModel @Inject constructor(private val model: MatchesHist
             try {
                 val response = model.getMatchesAsync(id)
                 if (response.isSuccessful) {
-                    val successHeroesResult = response.body()
-                    if (successHeroesResult != null) {
-                        //regen(successHeroesResult)
-                        matchesResult.postValue(successHeroesResult)
+                    val successResult = response.body()
+                    if (successResult != null) {
+                        matchesResult.postValue(successResult)
                     }
                 }
 
@@ -49,9 +48,10 @@ class MatchesHistoryViewModel @Inject constructor(private val model: MatchesHist
             try {
                 val response = model.getHeroesInfoAsync()
                 if (response.isSuccessful) {
-                    val successHeroesResult = response.body()
-                    if (successHeroesResult != null) {
-                        regen(successHeroesResult)
+                    val successResult = response.body()
+                    if (successResult != null) {
+                        //regen(successResult)
+                        heroesResult.postValue(successResult)
                     }
                 }
 
@@ -61,12 +61,12 @@ class MatchesHistoryViewModel @Inject constructor(private val model: MatchesHist
         }
     }
 
-    private fun regen(heroes: ArrayList<HeroInfo>) {
-        val heroesMap: HashMap<Int, String> = HashMap()
-
-        heroes.withIndex().forEach { (_, temp: HeroInfo) ->
-            heroesMap[temp.heroId!!] = temp.name!!
-        }
-        mapResult.postValue(heroesMap)
-    }
+//    private fun regen(heroes: ArrayList<HeroInfo>) {
+//        val heroesMap: HashMap<Int, String> = HashMap()
+//
+//        heroes.withIndex().forEach { (_, temp: HeroInfo) ->
+//            heroesMap[temp.heroId!!] = temp.name!!
+//        }
+//        mapResult.postValue(heroesMap)
+//    }
 }
