@@ -61,9 +61,18 @@ class MatchesHistoryAdapter(
         return String.format(Locale.ENGLISH, "%02d:%02d:%02d", hours, minutes, seconds)
     }
 
-    private fun getDays(totalSecs: Long): String {
-        val days = totalSecs / (3600 * 60 * 60 * 24)
-        return days.toString().plus(" days ago")
+    private fun getDays(startTime: Long): String {
+        val todaySecs = System.currentTimeMillis() / 1000
+
+        val secs = todaySecs - startTime
+        val days = secs / (24 * 3600)
+        val hours = secs / 3600
+        val minutes = (secs % 3600) / 60
+
+        return when {
+            (days > 0) -> days.toString().plus(" days ago")
+            else ->  String.format(Locale.ENGLISH, "%02d:%02d", hours, minutes).plus(" ago")
+        }
     }
 
     override fun getItemCount(): Int {
