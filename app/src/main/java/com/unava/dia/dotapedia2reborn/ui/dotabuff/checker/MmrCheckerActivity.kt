@@ -39,7 +39,8 @@ class MmrCheckerActivity : AppCompatActivity() {
     }
 
     private fun bindViewModel() {
-        this.viewModel = ViewModelProvider(this, viewModelFactory).get(MmrCheckerViewModel::class.java)
+        this.viewModel =
+            ViewModelProvider(this, viewModelFactory).get(MmrCheckerViewModel::class.java)
         this.observeViewModel()
     }
 

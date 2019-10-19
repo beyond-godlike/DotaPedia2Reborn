@@ -95,7 +95,7 @@
             app:layout_constraintTop_toBottomOf="@+id/etPlayerId"
             app:layout_constraintStart_toEndOf="@+id/tvEstimatedMmr"
             android:text="@string/bt_search"
-            style="@style/AppTheme.ButtonMmrChecker"
+            style="@style/AppTheme.ButtonDotabuff"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

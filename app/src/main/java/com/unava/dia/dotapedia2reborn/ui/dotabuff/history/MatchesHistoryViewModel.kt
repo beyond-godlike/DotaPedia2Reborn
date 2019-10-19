@@ -17,7 +17,6 @@ class MatchesHistoryViewModel @Inject constructor(private val model: MatchesHist
 
     var matchesResult: MutableLiveData<ArrayList<HistoryMatch>> = MutableLiveData()
     var heroesResult: MutableLiveData<ArrayList<HeroInfo>> = MutableLiveData()
-    //var mapResult: MutableLiveData<HashMap<Int, String>> = MutableLiveData()
 
     private val parentJob = Job()
     private val coroutineContext: CoroutineContext
@@ -50,7 +49,6 @@ class MatchesHistoryViewModel @Inject constructor(private val model: MatchesHist
                 if (response.isSuccessful) {
                     val successResult = response.body()
                     if (successResult != null) {
-                        //regen(successResult)
                         heroesResult.postValue(successResult)
                     }
                 }
@@ -60,13 +58,4 @@ class MatchesHistoryViewModel @Inject constructor(private val model: MatchesHist
             }
         }
     }
-
-//    private fun regen(heroes: ArrayList<HeroInfo>) {
-//        val heroesMap: HashMap<Int, String> = HashMap()
-//
-//        heroes.withIndex().forEach { (_, temp: HeroInfo) ->
-//            heroesMap[temp.heroId!!] = temp.name!!
-//        }
-//        mapResult.postValue(heroesMap)
-//    }
 }

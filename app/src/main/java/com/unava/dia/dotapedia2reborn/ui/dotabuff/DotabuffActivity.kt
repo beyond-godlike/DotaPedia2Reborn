@@ -1,8 +1,9 @@
 package com.unava.dia.dotapedia2reborn.ui.dotabuff
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.ui.dotabuff.checker.MmrCheckerActivity
 import com.unava.dia.dotapedia2reborn.ui.dotabuff.history.MatchesHistoryActivity
@@ -14,6 +15,11 @@ class DotabuffActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dotabuff)
+        init()
+    }
+
+    private fun init() {
+        this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
 
         btFindHistory.setOnClickListener {
             val intent = Intent(this, MatchesHistoryActivity::class.java)
