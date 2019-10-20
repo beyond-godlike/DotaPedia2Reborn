@@ -1,9 +1,9 @@
-package com.unava.dia.dotapedia2reborn.ui.common
+package com.unava.dia.dotapedia2reborn.common
 
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
-import com.unava.dia.dotapedia2reborn.ui.common.ProjectConstants.Companion.IMAGE_ONE_MATCH_HERO_HEIGHT
-import com.unava.dia.dotapedia2reborn.ui.common.ProjectConstants.Companion.IMAGE_ONE_MATCH_HERO_WIDTH
+import com.unava.dia.dotapedia2reborn.common.ProjectConstants.Companion.IMAGE_ONE_MATCH_HERO_HEIGHT
+import com.unava.dia.dotapedia2reborn.common.ProjectConstants.Companion.IMAGE_ONE_MATCH_HERO_WIDTH
 
 class PicassoUtils {
     companion object {

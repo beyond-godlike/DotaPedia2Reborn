@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.data.DotaHero
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.ctor.HeroConstructorActivity
-import com.unava.dia.dotapedia2reborn.ui.common.PicassoUtils
-import com.unava.dia.dotapedia2reborn.ui.common.ProjectConstants
-import com.unava.dia.dotapedia2reborn.ui.common.RecyclerViewClickListener
+import com.unava.dia.dotapedia2reborn.common.PicassoUtils
+import com.unava.dia.dotapedia2reborn.common.ProjectConstants
+import com.unava.dia.dotapedia2reborn.common.RecyclerViewClickListener
 import io.realm.RealmResults
 
 

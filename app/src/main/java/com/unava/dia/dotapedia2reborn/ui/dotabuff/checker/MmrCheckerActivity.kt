@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.unava.dia.dotapedia2reborn.R
-import com.unava.dia.dotapedia2reborn.ui.common.PicassoUtils
+import com.unava.dia.dotapedia2reborn.common.PicassoUtils
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_mmr_checker.*
 import javax.inject.Inject

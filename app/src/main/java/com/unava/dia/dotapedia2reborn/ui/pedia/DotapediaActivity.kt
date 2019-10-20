@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.data.DotaHero
 import com.unava.dia.dotapedia2reborn.data.heroes.Hero
-import com.unava.dia.dotapedia2reborn.ui.common.RecyclerViewClickListener
-import com.unava.dia.dotapedia2reborn.ui.common.Utils
+import com.unava.dia.dotapedia2reborn.common.RecyclerViewClickListener
+import com.unava.dia.dotapedia2reborn.common.Utils
 import dagger.android.AndroidInjection
 import io.realm.RealmResults
 import kotlinx.android.synthetic.main.activity_dotapedia.*

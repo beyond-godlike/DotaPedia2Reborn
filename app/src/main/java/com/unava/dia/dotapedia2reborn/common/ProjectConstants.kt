@@ -1,4 +1,4 @@
-package com.unava.dia.dotapedia2reborn.ui.common
+package com.unava.dia.dotapedia2reborn.common
 
 class ProjectConstants {
     companion object {

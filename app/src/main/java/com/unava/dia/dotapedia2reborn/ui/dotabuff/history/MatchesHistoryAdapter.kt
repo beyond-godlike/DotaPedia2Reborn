@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.data.history.*
-import com.unava.dia.dotapedia2reborn.ui.common.PicassoUtils
+import com.unava.dia.dotapedia2reborn.common.PicassoUtils
 import kotlinx.android.synthetic.main.card_matches_history.view.*
 import java.util.*
 
