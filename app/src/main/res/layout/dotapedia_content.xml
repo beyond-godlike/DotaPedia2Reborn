@@ -153,7 +153,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
         >
             <TextView
-                    android:id="@+id/hero_speed"
+                    android:id="@+id/tvSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/AppTheme.TextViewChars"
@@ -161,7 +161,7 @@
             />
 
             <TextView
-                    android:id="@+id/hero_damage"
+                    android:id="@+id/tvDamage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/AppTheme.TextViewChars"
@@ -169,7 +169,7 @@
             />
 
             <TextView
-                    android:id="@+id/hero_armor"
+                    android:id="@+id/tvArmor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:lines="1"
