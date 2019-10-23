@@ -15,18 +15,29 @@ class DotapediaViewModel @Inject constructor(
 
     val heroes: MutableLiveData<RealmResults<DotaHero>> = MutableLiveData()
     var hero: MutableLiveData<DotaHero> = MutableLiveData()
+    var currentHeroId: MutableLiveData<Int> = MutableLiveData()
+
+    init {
+        currentHeroId.value = 0
+    }
 
     private var tempHero: DotaHero = DotaHero()
 
     fun loadHeroes() {
-        val dotaHeroDao = DotaHeroDao(this.context)
-        dotaHeroDao.initRepos()
-        heroes.value = dotaHeroDao.loadRepos()
+        if (heroes.value.isNullOrEmpty()) {
+            val dotaHeroDao = DotaHeroDao(this.context)
+            dotaHeroDao.initRepos()
+            heroes.value = dotaHeroDao.loadRepos()
+        }
     }
 
-    fun loadHero(id: Int) {
-        hero.value = this.heroes.value?.get(id)
+    fun loadHero() {
+        hero.value = this.heroes.value?.get(currentHeroId.value!!)
         tempHero = hero.value!!
+    }
+
+    fun changeCurrentHeroId(id: Int) {
+        currentHeroId.value = id
     }
 
 }
