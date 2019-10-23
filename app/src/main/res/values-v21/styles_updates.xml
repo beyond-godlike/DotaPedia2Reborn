@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme.CardViewOneUpdate">
+    <style name="AppTheme.CardView">
         <item name="android:padding">@dimen/spacing_medium</item>
         <item name="android:layout_margin">@dimen/spacing_small</item>
         <item name="android:elevation">4dp</item>

@@ -46,6 +46,7 @@ class HeroConstructorViewModel @Inject constructor(
         hero.value = tempHero
     }
 
+    // TODO replace into model
     private fun changeStatsStrength() {
         tempHero.currentStrength = tempHero.strength + tempHero.currentLvl * tempHero.addSt
         tempHero.currentAgility = tempHero.agility + tempHero.currentLvl * tempHero.addAg

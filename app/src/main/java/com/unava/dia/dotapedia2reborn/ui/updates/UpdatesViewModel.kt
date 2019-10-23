@@ -35,4 +35,15 @@ class UpdatesViewModel @Inject constructor(private val model: UpdatesModel) : Vi
             }
         }
     }
+
+    fun clearAllArticles() {
+        scope.launch {
+            try {
+                model.clearAllUpdates()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                updatesErrorSubject.postValue(e.localizedMessage)
+            }
+        }
+    }
 }

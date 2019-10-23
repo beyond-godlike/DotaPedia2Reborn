@@ -11,7 +11,7 @@ import kotlin.coroutines.CoroutineContext
 
 class MatchViewModel @Inject constructor(private val model: MatchModel) : ViewModel() {
     val oneMatchResult: MutableLiveData<Boolean> = MutableLiveData()
-    val oneMatchErrorSubject: MutableLiveData<String> = MutableLiveData()
+    val oneMatchError: MutableLiveData<String> = MutableLiveData()
 
     var matchResult: MutableLiveData<Player> = MutableLiveData()
     var mapResult: MutableLiveData<HashMap<Int, String>> = MutableLiveData()
@@ -45,19 +45,19 @@ class MatchViewModel @Inject constructor(private val model: MatchModel) : ViewMo
             try {
                 val response = model.getOneMatchAsync(matchId, KEY)
                 if (response.isSuccessful) {
-                    val successMatchResult = response.body()
-                    if (successMatchResult != null) {
-                        matchResult.postValue(successMatchResult)
+                    val successResult = response.body()
+                    if (successResult != null) {
+                        matchResult.postValue(successResult)
                         oneMatchResult.postValue(true)
                     } else {
                         oneMatchResult.postValue(false)
                     }
                 } else {
-                    oneMatchErrorSubject.postValue(response.errorBody().toString())
+                    oneMatchError.postValue(response.errorBody().toString())
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
-                oneMatchErrorSubject.postValue(e.localizedMessage)
+                oneMatchError.postValue(e.localizedMessage)
             }
         }
     }

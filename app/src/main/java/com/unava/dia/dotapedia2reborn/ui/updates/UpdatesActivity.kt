@@ -48,6 +48,7 @@ class UpdatesActivity : AppCompatActivity() {
         })
         this.viewModel.articlesList.observe(this, Observer {
             adapter.updateData(it)
+            //Toast.makeText(applicationContext, it.size.toString(), Toast.LENGTH_SHORT).show()
         })
     }
 
@@ -62,5 +63,10 @@ class UpdatesActivity : AppCompatActivity() {
             intent.putExtra("URL_TO_FULL_ARTICLE", viewModel.articlesList.value?.get(it)?.urlToFullArticle)
             startActivity(intent)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        this.viewModel.clearAllArticles()
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DotaPedia2Reborn</string>
+    <string name="app_name">DotaPedia: Re</string>
     <string name="btn_pedia">Pedia</string>
     <string name="btn_updates">Updates</string>
     <string name="btn_check_mmr">Dotabuff</string>
@@ -42,6 +42,13 @@
     <string name="tv_title">title</string>
     <string name="tv_description">description</string>
     <string name="tv_date">date</string>
+
+    <string name="normal_skill">Normal Skill</string>
+    <string name="high_skill">High Skill</string>
+    <string name="very_high_skill">Normal Skill</string>
+    <string name="unknown_skill">Normal Skill</string>
+
+    <string name="tv_hero_name">Hero name</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
