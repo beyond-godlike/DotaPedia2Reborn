@@ -26,12 +26,11 @@
                 android:layout_width="256dp"
                 android:layout_height="144dp"
                 android:layout_marginTop="16dp"
-                android:foreground="@drawable/round_shape"
                 android:scaleType="fitXY"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvHeroName"
-                app:srcCompat="@drawable/axe"
+                app:srcCompat="@drawable/empty_icon"
         />
 
         <TextView
@@ -185,7 +184,6 @@
                 android:layout_marginTop="@dimen/spacing_small"
                 android:orientation="horizontal"
                 android:padding="5dp"
-                android:weightSum="1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -193,33 +191,38 @@
 
             <ImageButton
                     android:id="@+id/skill1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/skill_one"
+                    app:srcCompat="@drawable/empty_icon"
                     style="@style/AppTheme.ImageButton"
             />
 
             <ImageButton
                     android:id="@+id/skill2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/skill_two"
+                    app:srcCompat="@drawable/empty_icon"
                     style="@style/AppTheme.ImageButton"
             />
 
             <ImageButton
                     android:id="@+id/skill3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/skill_three"
+                    app:srcCompat="@drawable/empty_icon"
                     style="@style/AppTheme.ImageButton"
             />
 
             <ImageButton
+                    android:id="@+id/skill4"
+                    app:srcCompat="@drawable/empty_icon"
+                    android:visibility="gone"
+                    style="@style/AppTheme.ImageButton"
+                    />
+            <ImageButton
+                    android:id="@+id/skill5"
+                    app:srcCompat="@drawable/empty_icon"
+                    android:visibility="gone"
+                    style="@style/AppTheme.ImageButton"
+                    />
+
+            <ImageButton
                     android:id="@+id/skill6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/skill_four"
+                    app:srcCompat="@drawable/empty_icon"
                     style="@style/AppTheme.ImageButton"
             />
 

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
@@ -23,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_dotapedia.*
 import kotlinx.android.synthetic.main.dotapedia_content.*
 import javax.inject.Inject
 
-class DotapediaActivity : AppCompatActivity(), RecyclerViewClickListener, NavigationView.OnNavigationItemSelectedListener  {
+class DotapediaActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     @Inject
@@ -40,17 +41,28 @@ class DotapediaActivity : AppCompatActivity(), RecyclerViewClickListener, Naviga
     private fun init() {
         tvHeroHistory.movementMethod = ScrollingMovementMethod()
         this.viewModel.loadHeroes()
-        this.viewModel.loadHero(0)
+        this.viewModel.loadHero()
     }
 
     private fun showHero(hero: DotaHero) {
         tvHeroName.text = hero.name
-        // TODO show history
-        tvHeroHistory.text = hero.name
+        tvHeroHistory.text = hero.history
         ivHeroIcon.setImageDrawable(setImage(hero.icon))
         skill1.setImageDrawable(setImage(hero.skill1))
         skill2.setImageDrawable(setImage(hero.skill2))
         skill3.setImageDrawable(setImage(hero.skill3))
+        if(hero.skill4.isNotEmpty()) {
+            skill4.visibility = View.VISIBLE
+            skill4.setImageDrawable(setImage(hero.skill4))
+        } else {
+            skill4.visibility = View.GONE
+        }
+        if(hero.skill5.isNotEmpty()) {
+            skill5.visibility = View.VISIBLE
+            skill5.setImageDrawable(setImage(hero.skill5))
+        } else {
+            skill5.visibility = View.GONE
+        }
         skill6.setImageDrawable(setImage(hero.skill6))
         tvStrength.text = hero.strength.toString()
         tvAgility.text = hero.agility.toString()
@@ -77,6 +89,9 @@ class DotapediaActivity : AppCompatActivity(), RecyclerViewClickListener, Naviga
         this.viewModel.heroes.observe(this, Observer {
             initAdapter(it)
         })
+        this.viewModel.currentHeroId.observe(this, Observer {
+            this.viewModel.loadHero()
+        })
         this.viewModel.hero.observe(this, Observer {
             showHero(it)
         })
@@ -88,7 +103,7 @@ class DotapediaActivity : AppCompatActivity(), RecyclerViewClickListener, Naviga
         rvChooseHeroDrawer.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
 
         adapter.onItemClick = {
-            this.viewModel.loadHero(it)
+            this.viewModel.changeCurrentHeroId(it)
         }
 
     }
@@ -106,12 +121,8 @@ class DotapediaActivity : AppCompatActivity(), RecyclerViewClickListener, Naviga
         return true
     }
 
-    override fun onItemClick(position: Int) {
-        this.viewModel.loadHero(position)
-    }
-
     override fun onNavigationItemSelected(p0: MenuItem): Boolean {
-        this.viewModel.loadHero(p0.itemId)
+        this.viewModel.changeCurrentHeroId(p0.itemId)
 
         drawer.closeDrawer(GravityCompat.START)
         return true

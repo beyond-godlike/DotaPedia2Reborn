@@ -39,6 +39,7 @@ open class DotaHero : RealmObject() {
     open var skill4: String = ""
     open var skill5: String = ""
     open var skill6: String = ""
+    open var history: String = ""
     @Ignore
     open var currentLvl: Int = 1
     @Ignore
