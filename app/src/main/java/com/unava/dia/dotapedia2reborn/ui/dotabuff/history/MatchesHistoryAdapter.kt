@@ -1,6 +1,5 @@
 package com.unava.dia.dotapedia2reborn.ui.dotabuff.history
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.data.history.*
 import com.unava.dia.dotapedia2reborn.common.PicassoUtils
+import com.unava.dia.dotapedia2reborn.common.inflate
 import kotlinx.android.synthetic.main.card_matches_history.view.*
 import java.util.*
 
@@ -21,7 +21,7 @@ class MatchesHistoryAdapter(
     var onItemClick: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchesHistoryViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_matches_history, parent, false)
+        val v = parent.inflate(R.layout.card_matches_history)
 
         return MatchesHistoryViewHolder(v)
     }

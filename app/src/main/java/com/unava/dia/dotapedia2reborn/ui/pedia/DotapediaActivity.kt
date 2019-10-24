@@ -7,7 +7,6 @@ import android.text.method.ScrollingMovementMethod
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,13 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
 import com.unava.dia.dotapedia2reborn.R
-import com.unava.dia.dotapedia2reborn.common.RecyclerViewClickListener
 import com.unava.dia.dotapedia2reborn.common.Utils
 import com.unava.dia.dotapedia2reborn.data.DotaHero
 import dagger.android.AndroidInjection
 import io.realm.RealmResults
 import kotlinx.android.synthetic.main.activity_dotapedia.*
 import kotlinx.android.synthetic.main.dotapedia_content.*
+import com.unava.dia.dotapedia2reborn.common.*
 import javax.inject.Inject
 
 class DotapediaActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
@@ -48,22 +47,22 @@ class DotapediaActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         tvHeroName.text = hero.name
         tvHeroHistory.text = hero.history
         ivHeroIcon.setImageDrawable(setImage(hero.icon))
-        skill1.setImageDrawable(setImage(hero.skill1))
-        skill2.setImageDrawable(setImage(hero.skill2))
-        skill3.setImageDrawable(setImage(hero.skill3))
+        skill1.loadImage(hero.skill1, applicationContext)
+        skill2.loadImage(hero.skill2, applicationContext)
+        skill3.loadImage(hero.skill3, applicationContext)
         if(hero.skill4.isNotEmpty()) {
             skill4.visibility = View.VISIBLE
-            skill4.setImageDrawable(setImage(hero.skill4))
+            skill4.loadImage(hero.skill4, applicationContext)
         } else {
             skill4.visibility = View.GONE
         }
         if(hero.skill5.isNotEmpty()) {
             skill5.visibility = View.VISIBLE
-            skill5.setImageDrawable(setImage(hero.skill5))
+            skill5.loadImage(hero.skill4, applicationContext)
         } else {
             skill5.visibility = View.GONE
         }
-        skill6.setImageDrawable(setImage(hero.skill6))
+        skill6.loadImage(hero.skill6, applicationContext)
         tvStrength.text = hero.strength.toString()
         tvAgility.text = hero.agility.toString()
         tvIntelligence.text = hero.intelligence.toString()

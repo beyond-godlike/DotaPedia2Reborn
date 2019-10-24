@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import com.unava.dia.dotapedia2reborn.R
+import com.unava.dia.dotapedia2reborn.common.inflate
 import com.unava.dia.dotapedia2reborn.data.updates.UpdatesEntity
 import kotlinx.android.synthetic.main.card_one_update.view.*
 
@@ -17,7 +18,7 @@ class UpdatesAdapter : RecyclerView.Adapter<UpdatesAdapter.UpdatesViewHolder>() 
     var onItemClick: ((Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpdatesViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_one_update, parent, false)
+        val v = parent.inflate(R.layout.card_one_update)
 
         return UpdatesViewHolder(v)
     }
@@ -32,7 +33,6 @@ class UpdatesAdapter : RecyclerView.Adapter<UpdatesAdapter.UpdatesViewHolder>() 
         }
         holder.date.text = list[position].date
     }
-
     override fun getItemCount(): Int {
         return list.size
     }
@@ -41,6 +41,8 @@ class UpdatesAdapter : RecyclerView.Adapter<UpdatesAdapter.UpdatesViewHolder>() 
         this.list = updates
         notifyDataSetChanged()
     }
+
+
 
     inner class UpdatesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title: TextView = itemView.tvTitle
