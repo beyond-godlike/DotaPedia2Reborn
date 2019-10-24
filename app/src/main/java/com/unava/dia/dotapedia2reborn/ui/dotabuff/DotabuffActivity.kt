@@ -28,14 +28,12 @@ class DotabuffActivity : AppCompatActivity() {
         }
 
         btFindMatch.setOnClickListener {
-            // передаем номер матча
             val intent = Intent(this, MatchActivity::class.java)
             intent.putExtra("MATCH_NUMBER", etFindMatch.text.toString())
             startActivity(intent)
         }
 
         btFindPlayer.setOnClickListener {
-            // передаем в активити номер акка
             val intent = Intent(this, MmrCheckerActivity::class.java)
             intent.putExtra("PLAYER_ID", etFindPlayer.text.toString())
             startActivity(intent)

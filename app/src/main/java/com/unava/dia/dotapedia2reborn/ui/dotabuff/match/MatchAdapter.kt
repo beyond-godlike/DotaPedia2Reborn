@@ -1,6 +1,5 @@
 package com.unava.dia.dotapedia2reborn.ui.dotabuff.match
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.data.match.Result
 import com.unava.dia.dotapedia2reborn.common.PicassoUtils
+import com.unava.dia.dotapedia2reborn.common.inflate
 import kotlinx.android.synthetic.main.card_one_match.view.*
 
 class MatchAdapter(
@@ -20,7 +20,7 @@ class MatchAdapter(
     var onItemClick: ((String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.card_one_match, parent, false)
+        val v = parent.inflate(R.layout.card_one_match)
 
         return MatchViewHolder(v)
     }
