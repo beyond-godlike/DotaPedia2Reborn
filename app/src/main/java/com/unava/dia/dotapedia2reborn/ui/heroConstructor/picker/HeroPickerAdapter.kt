@@ -2,7 +2,6 @@ package com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker
 
 import android.app.Activity
 import android.content.Intent
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -13,6 +12,7 @@ import com.unava.dia.dotapedia2reborn.ui.heroConstructor.ctor.HeroConstructorAct
 import com.unava.dia.dotapedia2reborn.common.PicassoUtils
 import com.unava.dia.dotapedia2reborn.common.ProjectConstants
 import com.unava.dia.dotapedia2reborn.common.RecyclerViewClickListener
+import com.unava.dia.dotapedia2reborn.common.inflate
 import io.realm.RealmResults
 
 
@@ -22,7 +22,7 @@ class HeroPickerAdapter(
 ) : RecyclerView.Adapter<HeroPickerAdapter.HeroPickerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroPickerViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.icon_model, parent, false)
+        val v = parent.inflate(R.layout.icon_model)
 
         return HeroPickerViewHolder(v)
     }

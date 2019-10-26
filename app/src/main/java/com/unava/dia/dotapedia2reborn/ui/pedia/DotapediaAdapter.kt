@@ -1,6 +1,5 @@
 package com.unava.dia.dotapedia2reborn.ui.pedia
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.common.PicassoUtils
 import com.unava.dia.dotapedia2reborn.common.ProjectConstants
+import com.unava.dia.dotapedia2reborn.common.inflate
 import com.unava.dia.dotapedia2reborn.data.DotaHero
 import io.realm.RealmResults
 import kotlinx.android.synthetic.main.model_navigator.view.*
@@ -20,7 +20,7 @@ class DotapediaAdapter(
     var onItemClick: ((Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DotapediaViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.model_navigator, parent, false)
+        val v = parent.inflate(R.layout.model_navigator)
 
         return DotapediaViewHolder(v)
     }
