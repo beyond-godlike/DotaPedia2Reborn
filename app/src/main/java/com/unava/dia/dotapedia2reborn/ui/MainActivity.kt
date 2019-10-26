@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
+import androidx.core.content.edit
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.ui.dotabuff.DotabuffActivity
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker.HeroPickerActivity
@@ -34,6 +34,9 @@ class MainActivity : AppCompatActivity() {
         }
         btHeroConstructor.setOnClickListener {
             startActivity(Intent(this, HeroPickerActivity::class.java))
+        }
+        fab.setOnClickListener {
+            // TODO implement click listener
         }
 
         if (getMusicPrefs()) {
@@ -70,9 +73,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setMusicPrefs(musicState: Boolean) {
         val sPref = getPreferences(MODE_PRIVATE)
-        val editor = sPref.edit()
-        editor.putBoolean("MUSIC_ON_OFF", musicState)
-        editor.apply()
+        //sPref.edit { putBoolean("MUSIC_ON_OFF", musicState)}
+        sPref.edit(commit = true) { putBoolean("MUSIC_ON_OFF", musicState) }
+
     }
 
     private fun getMusicPrefs(): Boolean {

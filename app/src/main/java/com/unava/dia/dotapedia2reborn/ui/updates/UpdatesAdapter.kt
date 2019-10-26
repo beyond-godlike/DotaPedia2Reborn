@@ -2,7 +2,6 @@ package com.unava.dia.dotapedia2reborn.ui.updates
 
 import android.text.Html
 import androidx.recyclerview.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
