@@ -63,16 +63,16 @@ class DotapediaActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             skill5.visibility = View.GONE
         }
         skill6.loadImage(hero.skill6, applicationContext)
-        tvStrength.text = hero.strength.toString()
-        tvAgility.text = hero.agility.toString()
-        tvIntelligence.text = hero.intelligence.toString()
-        tvSpeed.text = "speed: ".plus(hero.speed.toString())
+        tvStrength.text = hero.base_str.toString()
+        tvAgility.text = hero.base_agi.toString()
+        tvIntelligence.text = hero.base_int.toString()
+        tvSpeed.text = "speed: ".plus(hero.move_speed.toString())
         tvDamage.text = "base damage: ".plus(
-            hero.baseDamage1.toInt().toString()
+            hero.base_attack_min.toInt().toString()
                 .plus(" - ")
-                .plus(hero.baseDamage2.toInt().toString())
+                .plus(hero.base_attack_max.toInt().toString())
         )
-        tvArmor.text = "armor: ".plus(hero.physarmor.toInt().toString())
+        tvArmor.text = "armor: ".plus(hero.base_armor.toInt().toString())
     }
 
     private fun setImage(path: String) : Drawable {
