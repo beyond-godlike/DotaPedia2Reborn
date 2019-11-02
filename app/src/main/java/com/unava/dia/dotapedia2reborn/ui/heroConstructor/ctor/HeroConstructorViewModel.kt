@@ -46,13 +46,13 @@ class HeroConstructorViewModel @Inject constructor(
         tempHero.currentIntelligence = getInt()
         tempHero.currentDmg1 = getMinDamage(type)
         tempHero.currentDmg2 = getMaxDamage(type)
-        tempHero.currentArmor = getArmor(type)
-        tempHero.currentMagResist = getMagResist(type)
-        tempHero.currentSpeed = getSpeed(type)
-        tempHero.currentHp = getHealth(type)
+        tempHero.currentArmor = getArmor()
+        tempHero.currentMagResist = getMagResist()
+        tempHero.currentSpeed = getSpeed()
+        tempHero.currentHp = getHealth()
         tempHero.currentEHP = getPhysEHP()
         tempHero.currentEHPm = getMagicalEHP()
-        tempHero.currentMp = getMana(type)
+        tempHero.currentMp = getMana()
     }
 
     private fun getStr() : Double {
@@ -85,47 +85,37 @@ class HeroConstructorViewModel @Inject constructor(
         }
     }
 
-    private fun getArmor(type: Int) : Double {
-        return when(type) {
-            2 -> tempHero.base_armor + (tempHero.currentAgility * 0.2)
-            else -> tempHero.base_armor + (tempHero.currentAgility * 0.16)
-        }
+    // основная броня = начальная броня + ловкость * 0.16
+    private fun getArmor() : Double {
+        return tempHero.base_armor + tempHero.currentAgility * 0.16
     }
 
-    // TODO change resist for strength. find formula
-    private fun getMagResist(type: Int) : Double {
-        return when(type) {
-            1 -> 0.25
-            else -> 0.25
-        }
+    private fun getMagResist() : Double {
+        return 0.25
     }
 
-    private fun getSpeed(type: Int) : Int {
-        return when(type) {
-            2 ->  (tempHero.move_speed + (tempHero.currentAgility * 0.063)).toInt()
-            else ->  (tempHero.move_speed + (tempHero.currentAgility * 0.05)).toInt()
-        }
+    // Атрибут ловкость даёт 0.05% скорости передвижения за единицу
+   
+    private fun getSpeed() : Int {
+        return (tempHero.move_speed + (tempHero.currentAgility * 0.05)).toInt()
     }
 
-    private fun getHealth(type: Int) : Double {
-        return when(type) {
-            1 -> tempHero.base_health + (tempHero.currentStrength * 22.5)
-            else -> tempHero.base_health + (tempHero.currentStrength * 18)
-        }
+    private fun getHealth() : Double {
+        return tempHero.base_health + (tempHero.currentStrength.toInt() * 20)
     }
 
+    // множитель урона = 1 - ((0.052 * броня) / (0.9 + 0.048 * |броня|))
+    //Эффективное здоровье = текущее здоровье / множитель урона
     private fun getPhysEHP() : Double {
-        return  tempHero.currentHp * (tempHero.currentArmor * 0.06 + 1)
+        val multiplier = 1 - ((0.052 * tempHero.currentArmor) / (0.9 + 0.048 * tempHero.currentArmor))
+        return  tempHero.currentHp / multiplier
     }
 
     private fun getMagicalEHP() : Double {
         return tempHero.currentHp / (1 - tempHero.currentMagResist)
     }
-    private fun getMana (type: Int) : Double {
-        return when(type) {
-            3 -> tempHero.base_mana + (tempHero.currentIntelligence * 15.0)
-            else -> tempHero.base_mana + (tempHero.currentIntelligence * 12.0)
-        }
+    private fun getMana () : Double {
+        return tempHero.base_mana + (tempHero.currentIntelligence.toInt() * 12)
     }
 
     fun addLvl() {
