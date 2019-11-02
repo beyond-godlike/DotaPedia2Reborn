@@ -6,6 +6,7 @@ import com.unava.dia.dotapedia2reborn.ui.dotabuff.history.MatchesHistoryActivity
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.ctor.HeroConstructorActivity
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker.HeroPickerActivity
 import com.unava.dia.dotapedia2reborn.ui.dotabuff.match.MatchActivity
+import com.unava.dia.dotapedia2reborn.ui.main.MainActivity
 import com.unava.dia.dotapedia2reborn.ui.pedia.DotapediaActivity
 import com.unava.dia.dotapedia2reborn.ui.updates.UpdatesActivity
 import com.unava.dia.dotapedia2reborn.ui.updates.update.OneUpdateActivity
@@ -53,4 +54,9 @@ abstract class ActivityBuilder {
         MatchesHistoryViewModule::class
     ])
     internal abstract fun bindMatchesHistoryActivity(): MatchesHistoryActivity
+
+    @ContributesAndroidInjector(modules = [
+        MainViewModule::class
+    ])
+    internal abstract fun bindMainActivity(): MainActivity
 }

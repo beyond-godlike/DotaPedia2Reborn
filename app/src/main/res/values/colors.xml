@@ -17,4 +17,6 @@
     <color name="btnDefautlG">@color/secondaryColor</color>
     <color name="btnDefautlB">#c14db6ac</color>
     <color name="colorSplashBackground">#000000</color>
+    <color name="colorToastBackground">#5781c784</color>
+    <color name="colorStrokeToast">#b1b1d2ec</color>
 </resources>

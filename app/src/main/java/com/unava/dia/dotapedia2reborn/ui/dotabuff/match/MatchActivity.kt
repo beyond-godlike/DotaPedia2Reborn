@@ -24,7 +24,6 @@ class MatchActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModel: MatchViewModel
 
-    // TODO shouldn`t be here
     private var heroesMap: HashMap<Int, String> = HashMap()
 
     override fun onCreate(savedInstanceState: Bundle?) {

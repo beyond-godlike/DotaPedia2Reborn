@@ -5,7 +5,6 @@ import io.realm.Realm
 import io.realm.RealmResults
 import java.io.InputStream
 
-// TODO migrate from realm to room
 class DotaHeroDao(private val context: Context) {
     private val realm = Realm.getDefaultInstance()
     fun initRepos() {

@@ -10,6 +10,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.unava.dia.dotapedia2reborn.R
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker.HeroPickerActivity
+import com.unava.dia.dotapedia2reborn.ui.main.MainActivity
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.After
 import org.junit.Before
@@ -18,7 +19,8 @@ import org.junit.Test
 
 class MainActivityTest {
     @get:Rule
-    var mActivityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
+    var mActivityRule: ActivityTestRule<MainActivity> = ActivityTestRule(
+        MainActivity::class.java)
 
     @Before
     fun setUp() {
