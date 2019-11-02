@@ -47,7 +47,7 @@ class HeroConstructorViewModel @Inject constructor(
         tempHero.currentDmg1 = getMinDamage(type)
         tempHero.currentDmg2 = getMaxDamage(type)
         tempHero.currentArmor = getArmor()
-        tempHero.currentMagResist = getMagResist(type)
+        tempHero.currentMagResist = getMagResist()
         tempHero.currentSpeed = getSpeed()
         tempHero.currentHp = getHealth()
         tempHero.currentEHP = getPhysEHP()
@@ -90,12 +90,8 @@ class HeroConstructorViewModel @Inject constructor(
         return tempHero.base_armor + tempHero.currentAgility * 0.16
     }
 
-    // TODO change resist for strength. find formula
-    private fun getMagResist(type: Int) : Double {
-        return when(type) {
-            1 -> 0.25
-            else -> 0.25
-        }
+    private fun getMagResist() : Double {
+        return 0.25
     }
 
     // Атрибут ловкость даёт 0.05% скорости передвижения за единицу

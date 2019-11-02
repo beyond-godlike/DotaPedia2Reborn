@@ -7,6 +7,7 @@ import com.unava.dia.dotapedia2reborn.ui.dotabuff.history.MatchesHistoryViewMode
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.ctor.HeroConstructorViewModel
 import com.unava.dia.dotapedia2reborn.ui.heroConstructor.picker.HeroPickerViewModel
 import com.unava.dia.dotapedia2reborn.ui.dotabuff.match.MatchViewModel
+import com.unava.dia.dotapedia2reborn.ui.main.MainViewModel
 import com.unava.dia.dotapedia2reborn.ui.pedia.DotapediaViewModel
 import com.unava.dia.dotapedia2reborn.ui.updates.UpdatesViewModel
 import com.unava.dia.dotapedia2reborn.ui.updates.update.OneUpdateViewModel
@@ -60,6 +61,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MatchesHistoryViewModel::class)
     internal abstract fun bindMatchesHistoryViewModel(viewModel: MatchesHistoryViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    internal abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
 
     //Add more ViewModels here
 }

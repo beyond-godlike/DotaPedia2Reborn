@@ -10,5 +10,10 @@ class ProjectConstants {
 
         const val IMAGE_ONE_MATCH_HERO_WIDTH = 59
         const val IMAGE_ONE_MATCH_HERO_HEIGHT = 33
+
+        const val STOP = "stop"
+        const val START = "start"
+        const val PAUSE = "pause"
+        const val RESUME = "resume"
     }
 }

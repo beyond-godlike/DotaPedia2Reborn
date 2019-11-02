@@ -33,8 +33,6 @@ class HeroConstructorActivity : AppCompatActivity() {
         this.viewModel.updateLvl()
         this.viewModel.updateSkillDescription(1)
 
-        // TODO  observe currentSkill pressed { this.viewModel.updateSkillDescription(it)}
-
         btPlus.setOnClickListener { this.viewModel.addLvl() }
         btMinus.setOnClickListener { this.viewModel.minusLvl() }
         btMaximum.setOnClickListener { this.viewModel.maxLvl() }
