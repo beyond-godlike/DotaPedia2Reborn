@@ -31,6 +31,9 @@ class HeroConstructorActivity : AppCompatActivity() {
     private fun init() {
         this.viewModel.loadHero(this.intent?.extras!!.getInt("HERO_ID"))
         this.viewModel.updateLvl()
+        this.viewModel.updateSkillDescription(1)
+
+        // TODO  observe currentSkill pressed { this.viewModel.updateSkillDescription(it)}
 
         btPlus.setOnClickListener { this.viewModel.addLvl() }
         btMinus.setOnClickListener { this.viewModel.minusLvl() }
@@ -64,14 +67,15 @@ class HeroConstructorActivity : AppCompatActivity() {
             tvAttack.text = (doubleToString(it.currentDmg1) + " + " + doubleToString(it.currentDmg2))
             tvArmor.text = doubleToString(it.currentArmor)
             tvSpeed.text = it.currentSpeed.toString()
-            tvAgility.text = (doubleToString(it.currentAgility) + " + " + doubleToString(it.agi_gain))
-            tvStrength.text = (doubleToString(it.currentStrength) + " + " + doubleToString(it.str_gain))
-            tvIntelligence.text = (doubleToString(it.currentIntelligence) + " + " + doubleToString(it.int_gain))
+            tvAgility.text = (doubleToString(it.currentAgility) + " + " + it.agi_gain.toString())
+            tvStrength.text = (doubleToString(it.currentStrength) + " + " + it.str_gain.toString())
+            tvIntelligence.text = (doubleToString(it.currentIntelligence) + " + " + it.int_gain.toString())
             skill_one.loadImage(it.skill1, applicationContext)
             skill_two.loadImage(it.skill2, applicationContext)
             skill_three.loadImage(it.skill3, applicationContext)
             skill_six.loadImage(it.skill6, applicationContext)
             if (it.skill4.isNotEmpty()) {
+                skill_four.visibility = View.VISIBLE
                 skill_four.loadImage(it.skill4, applicationContext)
             }
             if (it.skill5.isNotEmpty()) {
@@ -86,9 +90,6 @@ class HeroConstructorActivity : AppCompatActivity() {
             if(it.skill4 != it.skill5) {
                 skill_four.loadImage(it.skill4, applicationContext)
                 skill_five.loadImage(it.skill5, applicationContext)
-            }
-            else {
-              // TODO not implemented yet
             }
         })
     }

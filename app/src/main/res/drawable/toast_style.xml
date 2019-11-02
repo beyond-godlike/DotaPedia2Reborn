@@ -3,20 +3,20 @@
     <item>
         <shape>
             <gradient
-                android:startColor="#3181c784"
-                android:endColor="#5781c784"
-                android:centerColor="#5981c784"
+                android:startColor="@color/colorToastBackground"
+                android:endColor="@color/colorToastBackground"
+                android:centerColor="@color/colorToastBackground"
                 android:angle="270" />
             <stroke
                 android:width="1dp"
-                android:color="#b1b1d2ec"/>
+                android:color="@color/colorStrokeToast"/>
             <corners
                 android:radius="3dp" />
             <padding
-                android:left="8dp"
-                android:top="4dp"
-                android:right="8dp"
-                android:bottom="4dp" />
+                android:left="@dimen/spacing_small"
+                android:top="@dimen/spacing_minimum"
+                android:right="@dimen/spacing_small"
+                android:bottom="@dimen/spacing_minimum" />
         </shape>
     </item>
 </selector>

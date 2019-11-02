@@ -7,21 +7,22 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.unava.dia.dotapedia2reborn.R
 
-class MusicObserver(context: Context) : LifecycleObserver{
+// TODO add viewmodel. viewmodel gonna decide when 2 play music
+class MusicObserver(context: Context) : LifecycleObserver {
     private var player: MediaPlayer = MediaPlayer.create(context, R.raw.maintheme)
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun timeToStartMusic() {
-        player.start()
-    }
-
-//    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-//    fun pauseMusic() {
-//        player.pause()
+//    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+//    fun start() {
+//        player.start()
 //    }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun pause() {
+        player.pause()
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun resumeMusic() {
+    fun resume() {
         player.start()
     }
 
@@ -29,5 +30,18 @@ class MusicObserver(context: Context) : LifecycleObserver{
     fun stop() {
         player.stop()
         player.release()
+    }
+
+    fun startMusic() {
+        player.start()
+    }
+
+    fun stopMusic() {
+        player.stop()
+        player.release()
+    }
+
+    fun pauseMusic() {
+        player.pause()
     }
 }
