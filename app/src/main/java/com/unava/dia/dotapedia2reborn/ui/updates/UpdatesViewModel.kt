@@ -14,16 +14,21 @@ class UpdatesViewModel @Inject constructor(private val model: UpdatesModel) : Vi
     val updatesErrorSubject: MutableLiveData<String> = MutableLiveData()
 
     val articlesList: MutableLiveData<List<UpdatesEntity>> = MutableLiveData()
+    var page: MutableLiveData<Int> = MutableLiveData()
 
     private val parentJob = Job()
     private val coroutineContext: CoroutineContext
         get() = parentJob + Dispatchers.Default
     private val scope = CoroutineScope(coroutineContext)
 
-    fun loadArticles() {
+    init {
+        page.value = 1
+    }
+
+    fun loadArticles(pos: Int) {
         scope.launch {
             try {
-                model.insertUpdates()
+                model.insertUpdates(pos)
                 val result = model.getUpdates()
                 if(result.isEmpty()) {
                     updatesErrorSubject.postValue("db is null")
@@ -34,6 +39,14 @@ class UpdatesViewModel @Inject constructor(private val model: UpdatesModel) : Vi
                 updatesErrorSubject.postValue(e.localizedMessage)
             }
         }
+    }
+
+    fun loadNext() {
+        page.value = page.value?.plus(1)
+    }
+
+    fun loadPrevious() {
+        page.value = page.value?.minus(1)
     }
 
     fun clearAllArticles() {

@@ -33,7 +33,10 @@ class UpdatesActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        this.viewModel.loadArticles()
+        fabMore.setOnClickListener {
+            this.viewModel.loadNext()
+        }
+        //this.viewModel.loadArticles(1)
         initRecyclerView()
     }
 
@@ -45,6 +48,9 @@ class UpdatesActivity : AppCompatActivity() {
     private fun observeViewModel() {
         this.viewModel.updatesErrorSubject.observe(this, Observer {
             Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
+        })
+        this.viewModel.page.observe(this, Observer {
+            this.viewModel.loadArticles(it)
         })
         this.viewModel.articlesList.observe(this, Observer {
             adapter.updateData(it)

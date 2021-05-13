@@ -11,8 +11,8 @@ class UpdatesModel @Inject constructor(private val updatesRepository: UpdatesRep
         return updatesRepository.getUpdates()
     }
 
-    fun insertUpdates() {
-        val html = UpdatesParser.loadHtml(BuildConfig.UPDATES_URL)
+    fun insertUpdates(page: Int) {
+        val html = UpdatesParser.loadHtml(BuildConfig.UPDATES_URL + page.toString())
         val updatesList = UpdatesParser.parseHtml(html)
         updatesList?.forEach {
             updatesRepository.insertUpdate(it)
